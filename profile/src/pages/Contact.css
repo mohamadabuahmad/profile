@@ -1,0 +1,103 @@
+/* Light Theme */
+body.light {
+  --background-color: #f5f5f7;
+  --text-color: #1d1d1f;
+  --input-bg-color: #ffffff;
+  --input-border-color: #e0e0e0;
+  --button-bg-color: #0071e3;
+  --button-text-color: #fff;
+  --button-hover-bg-color: #005bb5;
+}
+
+/* Dark Theme */
+body.dark {
+  --background-color: #1d1d1f;
+  --text-color: #f5f5f7;
+  --input-bg-color: #2c2c2e;
+  --input-border-color: #444;
+  --button-bg-color: #0a84ff;
+  --button-text-color: #fff;
+  --button-hover-bg-color: #66aaff;
+}
+
+/* Common Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact {
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background-color: var(--input-bg-color);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--button-bg-color);
+  outline: none;
+}
+
+.contact-button {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+/* Mail Link */
+.mail-link {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: var(--button-bg-color);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mail-link:hover {
+  color: var(--button-hover-bg-color);
+}
