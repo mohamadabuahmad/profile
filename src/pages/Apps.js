@@ -20,7 +20,19 @@ const Apps = () => {
       </section>
      
       {/* Placeholder for Future Apps */}
-     
+      <section className="app-section">
+  <h2 className="app-name">WhatsApp Weather & Motivation Bot</h2>
+  <p className="app-description">
+    The WhatsApp Weather & Motivation Bot is an automated system that sends daily **weather alerts** and **motivational quotes** to users via WhatsApp. It fetches real-time weather data and inspiring quotes using external APIs, ensuring users stay informed and motivated every day.
+  </p>
+  <ul className="app-features">
+    <li>🌤 **Real-time weather alerts** fetched from OpenWeatherMap API.</li>
+    <li>📜 **Daily motivational quotes** retrieved from RapidAPI.</li>
+    <li>📲 **Automated WhatsApp messages** using Twilio API.</li>
+    <li>🛠 **Customizable** message templates for different weather conditions.</li>
+  </ul>
+</section>
+
 
    
 
