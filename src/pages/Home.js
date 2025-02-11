@@ -1,7 +1,17 @@
 import React from 'react';
+import ReactGA from 'react-ga4';
 import './Home.css';  // Import the custom CSS file for styling
 
 const Home = () => {
+  // Track CV Download
+  const handleDownloadCV = () => {
+    ReactGA.event({
+      category: "Download",
+      action: "Clicked CV Download",
+      label: "Home Page",
+    });
+  };
+
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -15,8 +25,10 @@ const Home = () => {
             <a href="/apps" className="hero-button">View My Apps</a>
             <a href="/contact" className="hero-button hero-button-outline">Contact Me</a>
           </div>
-          {/* Download CV Button */}
-          <a href="/CV.pdf" download className="cv-download-button">Download My CV</a>
+          {/* Download CV Button with Tracking */}
+          <a href="/CV.pdf" download className="cv-download-button" onClick={handleDownloadCV}>
+            Download My CV
+          </a>
         </div>
       </section>
 
