@@ -1,12 +1,66 @@
 import React from 'react';
 import './Apps.css';  // Import the custom CSS file for styling
+import ImageSlider from "../components/ImageSlider"; // Import slider component
 
 const Apps = () => {
+    // Image sets for each project
+    const robotWaiterImages = [
+      "/images/1.jpg",
+      "/images/2.jpg",
+      "/images/3.jpg",
+      "/images/4.jpg",
+      "/images/5.jpg",
+  
+    ];
+  
+
   return (
     <div className="apps-page">
-      <h1 className="apps-title">Projects</h1>
+    <h1 className="apps-title">Projects</h1>
       
-      {/* Car Info App Section */}
+  
+
+
+
+      <section className="app-section">
+  <h2 className="app-name">Restaurant Robot Waiter</h2>
+  <p className="app-description">
+    The **Restaurant Robot Waiter** is a fully functional robot designed to automate food 
+    delivery in restaurants. Built at age 18 as a school project, this robot operates in both 
+    **autonomous** and **manual modes**, navigating seamlessly with **omni-wheels** for full directional movement. 
+    It is controlled via a **custom-built controller** or **smartphone app**, enhancing efficiency in hospitality environments.
+  </p>
+  <ul className="app-features">
+    <li>🤖 <strong>Technology Used</strong>:
+      <ul>
+        <li>**Arduino Uno** - The central microcontroller for processing commands.</li>
+        <li>**Motor Drivers (L298N, BTS7960)** - Controls the speed and direction of the motors.</li>
+        <li>**Omni-Wheels** - Enables smooth, multi-directional movement.</li>
+        <li>**Battery Pack (12V NiMH)** - Provides power to the system.</li>
+        <li>**Custom Wireless Controller** - Used to manually operate the robot.</li>
+        <li>**Ultrasonic & IR Sensors (optional)** - Can be added for obstacle detection.</li>
+      </ul>
+    </li>
+    
+    <li>🎯 <strong>Key Features</strong>:
+      <ul>
+        <li>Manually controlled via a custom-built **wireless controller**.</li>
+        <li>Can be programmed for **autonomous navigation**.</li>
+        <li>Built-in **tray system** to transport food and drinks.</li>
+        <li>**Omni-wheel system** for smooth movement in any direction.</li>
+      </ul>
+    </li>
+
+    <li>🍽️ <strong>Use Cases</strong>: 
+      <p>
+        Ideal for **restaurants**, **cafeterias**, and **smart hospitality services**, improving efficiency by reducing staff workload.
+      </p>
+    </li>
+
+  </ul>
+  <ImageSlider images={robotWaiterImages} />
+
+</section>
       <section className="app-section">
   <h2 className="app-name">Car Info Lookup (iOS & Android)</h2>
   <p className="app-description">
@@ -161,12 +215,121 @@ const Apps = () => {
   </ul>
 </section>
 
-
-
-   
-
-    </div>
+</div>
   );
 };
 
 export default Apps;
+// import React from "react";
+// import "./Apps.css"; // Import the custom CSS file for styling
+
+// const Apps = () => {
+//   return (
+//     <div className="apps-page">
+//       <h1 className="apps-title">Projects</h1>
+
+//       {/* Restaurant Robot Waiter */}
+//       <section className="app-section">
+//         <h2 className="app-name">Restaurant Robot Waiter</h2>
+//         <p className="app-description">
+//           The **Restaurant Robot Waiter** is a fully functional robot designed to automate food 
+//           delivery in restaurants. Built at age 18 as a school project, this robot operates in both 
+//           **autonomous** and **manual modes**, navigating seamlessly with **omni-wheels** for full directional movement.
+//         </p>
+        
+//         {/* Image */}
+//         <div className="image-container">
+//           <img src="/images/robot1.jpg" alt="Robot Waiter" className="small-hover-image" />
+//         </div>
+
+//       </section>
+
+//       {/* Car Info App Section */}
+//       <section className="app-section">
+//         <h2 className="app-name">Car Info Lookup (iOS & Android)</h2>
+//         <p className="app-description">
+//           Car Info Lookup is a cross-platform application that retrieves detailed vehicle 
+//           information based on a provided license plate number.
+//         </p>
+
+//         {/* Image */}
+//         <div className="image-container">
+//           <img src="/images/car1.jpg" alt="Car Info App" className="small-hover-image" />
+//         </div>
+
+//       </section>
+
+//       {/* WhatsApp Bot */}
+//       <section className="app-section">
+//         <h2 className="app-name">WhatsApp Weather & Motivation Bot</h2>
+//         <p className="app-description">
+//           The WhatsApp Weather & Motivation Bot sends daily **weather alerts** and **motivational quotes** via WhatsApp.
+//         </p>
+
+//         {/* Image */}
+//         <div className="image-container">
+//           <img src="/images/whatsapp-bot.jpg" alt="WhatsApp Bot" className="small-hover-image" />
+//         </div>
+
+//       </section>
+
+//       {/* Go Nature */}
+//       <section className="app-section">
+//         <h2 className="app-name">Go Nature - Park Management System</h2>
+//         <p className="app-description">
+//           Go Nature is a Java-based application designed to streamline park service management.
+//         </p>
+
+//         {/* Image */}
+//         <div className="image-container">
+//           <img src="/images/go-nature.jpg" alt="Go Nature App" className="small-hover-image" />
+//         </div>
+
+//       </section>
+
+//       {/* Social Media Platform */}
+//       <section className="app-section">
+//   <h2 className="app-name">Networking - Social Media Platform</h2>
+//   <p className="app-description">
+//     Networking is a full-stack social media application that empowers users to 
+//     register, post, like, comment, follow other users, and exchange direct messages 
+//     in real-time. It provides a responsive, feature-rich experience with secure 
+//     authentication, live notifications, and customizable profiles—all built on 
+//     modern web technologies.
+//   </p>
+//   <ul className="app-features">
+//     <li>✅ <strong>User Authentication</strong>: Secure sign-up, login, and password recovery via security questions.</li>
+
+//     <li>💬 <strong>Interactive Posts & Feeds</strong>: Create posts, like, comment, follow/unfollow, and more.</li>
+//     <li>🔔 <strong>Real-time Notifications</strong>: Instant alerts for likes, comments, follows, and new messages.</li>
+//     <li>💻 <strong>Peer-to-Peer Messaging</strong>: Real-time chats powered by WebSockets.</li>
+//     <li>🌙 <strong>Dark Mode & Responsive UI</strong>: Smooth dark mode toggle and fully responsive design.</li>
+//     <li>🛠 <strong>Tech Stack</strong>: 
+//       <ul>
+//         <li>Frontend: React.js (Next.js), Tailwind CSS, Axios</li>
+//         <li>Backend: Node.js (Express.js), MongoDB (MongoDB Atlas), JWT Authentication, WebSockets</li>
+//         <li>Deployment: Vercel (Frontend) & Vercel + MongoDB Atlas (Backend)</li>
+//       </ul>
+//     </li>
+//     <li>🔗 <strong>Project Link</strong>:
+//       <a 
+//         href="https://github.com/mohamadabuahmad/Social-Media-Platform.git" 
+//         target="_blank" 
+//         rel="noopener noreferrer"
+//       >
+//         More Details About Networking - Social Media Platform
+//       </a>
+//     </li>
+//   </ul>
+
+//         {/* Image */}
+//         <div className="image-container">
+//           <img src="/images/social-media.jpg" alt="Social Media Platform" className="small-hover-image" />
+//         </div>
+
+//       </section>
+//     </div>
+//   );
+// };
+
+// export default Apps;
