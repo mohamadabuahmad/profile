@@ -16,8 +16,13 @@ const Contact = () => {
     e.preventDefault();
 
     // Replace 'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', and 'YOUR_USER_ID' with your EmailJS credentials
-    emailjs.send('service_lnvb479', 'template_a0u7v3e', formData, '84NGsinnrOvnjhcHf')
-      .then((result) => {
+    emailjs.send(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      formData,
+      process.env.REACT_APP_EMAILJS_USER_ID
+    )
+          .then((result) => {
         console.log('Email successfully sent!', result.text);  // Log success message
         alert('Message sent successfully!');  // Display success alert
         setFormData({ name: '', email: '', message: '' });  // Clear the form
