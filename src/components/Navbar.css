@@ -1,3 +1,14 @@
+
+/* GLOBAL PREVENT OVERFLOW */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .navbar {
   background-color: var(--navbar-bg);
   color: var(--text-color);
@@ -10,6 +21,14 @@
   z-index: 1000;
 }
 
+/* Logo */
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--link-color);
+}
+
+/* Nav Links */
 .nav-links {
   display: flex;
   gap: 20px;
@@ -26,6 +45,14 @@
   background-color: var(--link-hover-bg);
 }
 
+/* Actions (theme toggle + menu button) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Theme Toggle */
 .theme-toggle-button {
   background: none;
   border: none;
@@ -37,4 +64,39 @@
 
 .theme-toggle-button:hover {
   color: var(--icon-hover-color);
+}
+
+/* Menu Toggle (hamburger/close icon) */
+.menu-toggle-button {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--icon-color);
+  cursor: pointer;
+  display: none; /* Hidden on desktop */
+}
+
+/* 🌐 Responsive (phones) */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--navbar-bg);
+    gap: 15px;
+    padding: 15px 0;
+    display: none;
+    border-top: 1px solid var(--card-border-color);
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-toggle-button {
+    display: block;
+  }
 }

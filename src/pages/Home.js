@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga4';
 import './Home.css';  // Import the custom CSS file for styling
+import { FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa';
 
 const Home = () => {
   // Track CV Download
@@ -24,12 +25,25 @@ const Home = () => {
           <div className="hero-buttons">
             <a href="/apps" className="hero-button">View My Apps</a>
             <a href="/contact" className="hero-button hero-button-outline">Contact Me</a>
+            
           </div>
           {/* Download CV Button with Tracking */}
           <a href="/CV.pdf" download className="cv-download-button" onClick={handleDownloadCV}>
             Download My CV
           </a>
         </div>
+        <div className="social-icons">
+  <a href="https://www.linkedin.com/in/mohamad-abu-ahmad-817a82262?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bnb3sIT6vQ6KywyiydjEkCA%3D%3D" target="_blank" rel="noopener noreferrer">
+    <FaLinkedin className="icon" />
+  </a>
+  <a href="mailto:mohamdadm25@gmail.com" target="_blank" rel="noopener noreferrer">
+    <FaEnvelope className="icon" />
+  </a>
+  {/* <a href="https://www.instagram.com/your_username" target="_blank" rel="noopener noreferrer">
+    <FaInstagram className="icon" />
+  </a> */}
+</div>
+
       </section>
 
       {/* About Preview Section */}

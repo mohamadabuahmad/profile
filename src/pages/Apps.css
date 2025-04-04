@@ -1,3 +1,9 @@
+/* Prevent horizontal scroll */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* Light Theme */
 body.light {
   --background-color: #f5f5f7;
@@ -22,7 +28,7 @@ body.dark {
   --card-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Common Styles */
+/* Base Styles */
 body {
   margin: 0;
   padding: 0;
@@ -32,12 +38,15 @@ body {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Page Layout */
+/* Layout */
 .apps-page {
   padding: 50px 20px;
   max-width: 1100px;
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Title */
@@ -50,17 +59,19 @@ body {
   animation: fadeIn 1s ease-in-out forwards;
 }
 
-/* Sections */
+/* Section */
 .app-section {
   background: var(--card-bg-color);
   border-radius: 14px;
   padding: 30px;
-  margin-bottom: 40px;
+  margin: 0 0 40px 0;
   box-shadow: var(--card-shadow);
   transition: 0.4s ease;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s ease-in-out forwards;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .app-section:hover {
@@ -68,7 +79,7 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Section Titles */
+/* Titles & Text */
 .app-name {
   font-size: 2rem;
   font-weight: bold;
@@ -76,11 +87,12 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Description */
 .app-description {
   font-size: 1.2rem;
   color: var(--secondary-text-color);
   margin-bottom: 20px;
+  padding: 0 5px;
+  word-break: break-word;
 }
 
 /* Features List */
@@ -98,12 +110,22 @@ body {
   animation: fadeIn 1s ease-in-out forwards;
 }
 
+.app-features ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.app-features li p {
+  margin: 5px 0;
+}
+
 /* Links */
 .app-section a {
   color: var(--link-color);
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
+  word-break: break-word;
 }
 
 .app-section a:hover {
@@ -133,65 +155,35 @@ body {
   }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .apps-title {
-    font-size: 2.5rem;
-  }
-
-  .app-section {
-    padding: 20px;
-  }
-
-  .app-name {
-    font-size: 1.8rem;
-  }
-
-  .app-description {
-    font-size: 1rem;
-  }
-  .carousel {
-    max-width: 300px; /* Slightly smaller carousel */
-  }
-  
-  .carousel-image {
-    max-width: 180px; /* Make the image smaller */
-    max-height: 140px;
-  }
-}
-  
-    /* Center the carousel container */
+/* Carousel */
 .carousel {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px 0;
+  margin: 10px auto;
   width: 100%;
-  max-width: 400px; /* Limit the width of the carousel */
-  margin: 0 auto; /* Center the carousel */
+  max-width: 400px;
   overflow: hidden;
   border-radius: 12px;
   background-color: var(--card-bg-color);
 }
 
-/* Adjust the image size */
 .carousel-image {
-  width: 100%; /* Ensures it fits the container */
-  max-width: 250px; /* Adjust to make the image smaller */
-  height: auto; /* Maintain aspect ratio */
-  max-height: 180px; /* Prevent excessive height */
-  object-fit: cover; /* Prevents distortion */
-  border-radius: 10px; /* Soft corners */
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
 }
 
-/* On Hover: Slight enlarge effect */
 .carousel-image:hover {
   transform: scale(1.02);
 }
 
-/* Button Styling */
+/* Buttons */
 .prev-button, .next-button {
   background-color: #333;
   color: white;
@@ -208,6 +200,76 @@ body {
   background-color: #555;
 }
 
-/* ✅ Responsive for Mobile */
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .apps-page {
+    padding: 20px 10px;
+  }
 
+  .apps-title {
+    font-size: 2.3rem;
+    padding: 0 10px;
+  }
 
+  .app-section {
+    padding: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .app-name {
+    font-size: 1.6rem;
+  }
+
+  .app-description {
+    font-size: 0.95rem;
+  }
+
+  .app-features {
+    text-align: center;
+  }
+
+  .app-features li {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .app-section a {
+    font-size: 0.95rem;
+  }
+
+  .carousel {
+    max-width: 300px;
+  }
+
+  .carousel-image {
+    max-width: 180px;
+    max-height: 140px;
+  }
+
+  .prev-button,
+  .next-button {
+    padding: 12px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-image {
+    max-width: 150px;
+    max-height: 120px;
+  }
+
+  .app-description {
+    font-size: 0.9rem;
+  }
+
+  .app-name {
+    font-size: 1.4rem;
+  }
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}

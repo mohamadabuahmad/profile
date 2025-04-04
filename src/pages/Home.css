@@ -22,6 +22,7 @@ body.dark {
   --button-hover-bg-color: #66aaff;
 }
 
+
 /* Common Styles */
 body {
   margin: 0;
@@ -190,6 +191,7 @@ body {
   border-radius: 8px;
   font-size: 1.2rem;
   transition: background-color 0.3s ease;
+  
 }
 
 .cv-download-button:hover {
@@ -213,4 +215,29 @@ body {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;         /* space between icons */
+  margin-top: 20px;  /* space from CV button */
+}
+
+.icon {
+  font-size: 2.5rem;   /* make the icons bigger */
+  color: var(--link-color);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.icon:hover {
+  color: var(--link-hover-color);
+  transform: scale(1.1);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
