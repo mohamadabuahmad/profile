@@ -22,45 +22,7 @@ const Apps = () => {
 
 
 
-      <section className="app-section">
-  <h2 className="app-name">Restaurant Robot Waiter</h2>
-  <p className="app-description">
-    The **Restaurant Robot Waiter** is a fully functional robot designed to automate food 
-    delivery in restaurants. Built at age 18 as a school project, this robot operates in both 
-    **autonomous** and **manual modes**, navigating seamlessly with **omni-wheels** for full directional movement. 
-    It is controlled via a **custom-built controller** or **smartphone app**, enhancing efficiency in hospitality environments.
-  </p>
-  <ul className="app-features">
-    <li>🤖 <strong>Technology Used</strong>:
-      <ul>
-        <li>**Arduino Uno** - The central microcontroller for processing commands.</li>
-        <li>**Motor Drivers (L298N, BTS7960)** - Controls the speed and direction of the motors.</li>
-        <li>**Omni-Wheels** - Enables smooth, multi-directional movement.</li>
-        <li>**Battery Pack (12V NiMH)** - Provides power to the system.</li>
-        <li>**Custom Wireless Controller** - Used to manually operate the robot.</li>
-        <li>**Ultrasonic & IR Sensors (optional)** - Can be added for obstacle detection.</li>
-      </ul>
-    </li>
-    
-    <li>🎯 <strong>Key Features</strong>:
-      <ul>
-        <li>Manually controlled via a custom-built **wireless controller**.</li>
-        <li>Can be programmed for **autonomous navigation**.</li>
-        <li>Built-in **tray system** to transport food and drinks.</li>
-        <li>**Omni-wheel system** for smooth movement in any direction.</li>
-      </ul>
-    </li>
-
-    <li>🍽️ <strong>Use Cases</strong>: 
-      <p>
-        Ideal for **restaurants**, **cafeterias**, and **smart hospitality services**, improving efficiency by reducing staff workload.
-      </p>
-    </li>
-
-  </ul>
-  <ImageSlider images={robotWaiterImages} />
-
-</section>
+ 
       <section className="app-section">
   <h2 className="app-name">Car Info Lookup (iOS & Android)</h2>
   <p className="app-description">
@@ -214,7 +176,45 @@ const Apps = () => {
     </li>
   </ul>
 </section>
+{/* <section className="app-section">
+  <h2 className="app-name">Restaurant Robot Waiter</h2>
+  <p className="app-description">
+    The **Restaurant Robot Waiter** is a fully functional robot designed to automate food 
+    delivery in restaurants. Built at age 18 as a school project, this robot operates in both 
+    **autonomous** and **manual modes**, navigating seamlessly with **omni-wheels** for full directional movement. 
+    It is controlled via a **custom-built controller** or **smartphone app**, enhancing efficiency in hospitality environments.
+  </p>
+  <ul className="app-features">
+    <li>🤖 <strong>Technology Used</strong>:
+      <ul>
+        <li>**Arduino Uno** - The central microcontroller for processing commands.</li>
+        <li>**Motor Drivers (L298N, BTS7960)** - Controls the speed and direction of the motors.</li>
+        <li>**Omni-Wheels** - Enables smooth, multi-directional movement.</li>
+        <li>**Battery Pack (12V NiMH)** - Provides power to the system.</li>
+        <li>**Custom Wireless Controller** - Used to manually operate the robot.</li>
+        <li>**Ultrasonic & IR Sensors (optional)** - Can be added for obstacle detection.</li>
+      </ul>
+    </li>
+    
+    <li>🎯 <strong>Key Features</strong>:
+      <ul>
+        <li>Manually controlled via a custom-built **wireless controller**.</li>
+        <li>Can be programmed for **autonomous navigation**.</li>
+        <li>Built-in **tray system** to transport food and drinks.</li>
+        <li>**Omni-wheel system** for smooth movement in any direction.</li>
+      </ul>
+    </li>
 
+    <li>🍽️ <strong>Use Cases</strong>: 
+      <p>
+        Ideal for **restaurants**, **cafeterias**, and **smart hospitality services**, improving efficiency by reducing staff workload.
+      </p>
+    </li>
+
+  </ul>
+  <ImageSlider images={robotWaiterImages} />
+
+</section> */}
 </div>
   );
 };
