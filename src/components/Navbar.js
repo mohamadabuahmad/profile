@@ -1,30 +1,59 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../App';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { FiMenu, FiX } from 'react-icons/fi'; // Add hamburger and close icons
+import { FiMenu, FiX } from 'react-icons/fi';
 import './Navbar.css';
+
+const links = [
+  { to: '/', label: 'Home' },
+  { to: '/apps', label: 'Projects' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
+];
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <nav className="navbar">
-      <div className="logo">Software Engineer</div>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
+        <span className="nav-logo-mark">M</span>
+        <span className="nav-logo-text">Mohamad<span className="dot">.</span></span>
+      </Link>
 
       <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-        <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/apps" className="nav-link" onClick={() => setMenuOpen(false)}>Apps</Link>
-        <Link to="/about" className="nav-link" onClick={() => setMenuOpen(false)}>About</Link>
-        <Link to="/contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</Link>
+        {links.map((l) => (
+          <Link
+            key={l.to}
+            to={l.to}
+            className={`nav-link ${pathname === l.to ? 'active' : ''}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            {l.label}
+          </Link>
+        ))}
       </div>
 
       <div className="nav-actions">
-        <button className="theme-toggle-button" onClick={toggleTheme}>
+        <button className="theme-toggle-button" onClick={toggleTheme} aria-label="Toggle theme">
           {theme === 'light' ? <FaMoon /> : <FaSun />}
         </button>
-        <button className="menu-toggle-button" onClick={() => setMenuOpen(!menuOpen)}>
+        <button
+          className="menu-toggle-button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
           {menuOpen ? <FiX /> : <FiMenu />}
         </button>
       </div>
