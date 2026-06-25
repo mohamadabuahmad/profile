@@ -9,7 +9,7 @@ import Services from './pages/Services';
 import MainLayout from './layouts/MainLayout';
 const AppRouter = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
