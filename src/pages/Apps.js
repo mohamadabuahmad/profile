@@ -1,17 +1,17 @@
 import React from 'react';
 import './Apps.css';  // Import the custom CSS file for styling
-import ImageSlider from "../components/ImageSlider"; // Import slider component
+// import ImageSlider from "../components/ImageSlider"; // Import slider component
 
 const Apps = () => {
     // Image sets for each project
-    const robotWaiterImages = [
-      "/images/1.jpg",
-      "/images/2.jpg",
-      "/images/3.jpg",
-      "/images/4.jpg",
-      "/images/5.jpg",
+    // const robotWaiterImages = [
+    //   "/images/1.jpg",
+    //   "/images/2.jpg",
+    //   "/images/3.jpg",
+    //   "/images/4.jpg",
+    //   "/images/5.jpg",
   
-    ];
+    // ];
   
 
   return (

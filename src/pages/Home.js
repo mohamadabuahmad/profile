@@ -21,7 +21,7 @@ const Home = () => {
           {/* Profile Picture */}
           <img src="/profile_pic.jpg" alt="Mohamad Abu Ahmad" className="profile-picture" />
           <h1 className="hero-title">Hi, I'm Mohamad Abu Ahmad</h1>
-          <p className="hero-subtitle">Software Engineering Student | Full Stack Developer</p>
+          <p className="hero-subtitle">Software Engineer | Full Stack Developer</p>
           <div className="hero-buttons">
             <a href="/apps" className="hero-button">View My Apps</a>
             <a href="/contact" className="hero-button hero-button-outline">Contact Me</a>
@@ -50,7 +50,7 @@ const Home = () => {
       <section className="about-preview">
         <h2>About Me</h2>
         <p>
-          I am a passionate Software Engineering student with a focus on developing robust and innovative software solutions. With a strong foundation in back-end development, I aim to enhance user experiences through intuitive and efficient system design.
+          I am a passionate Software Engineer and Full Stack Developer with a focus on developing robust and innovative software solutions. With a strong foundation in back-end development, I aim to enhance user experiences through intuitive and efficient system design.
         </p>
         <a href="/about" className="about-read-more">Read More</a>
       </section>
