@@ -31,7 +31,7 @@ jobs:
         run: npm run build
         env:
           CI: false               # treat lint warnings as warnings, not errors
-          PUBLIC_URL: /profile     # project site is served from /<repo>/
+          PUBLIC_URL: /profile-mohamad  # project site is served from /<repo>/
 
       - name: SPA fallback (copy index.html to 404.html)
         run: cp build/index.html build/404.html

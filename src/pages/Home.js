@@ -88,7 +88,7 @@ const Home = () => {
                 Contact Me
               </motion.a>
               <motion.a
-                href="/CV.pdf"
+                href={`${process.env.PUBLIC_URL}/CV.pdf`}
                 download
                 onClick={handleDownloadCV}
                 className="btn-ghost cv-button"
@@ -129,7 +129,7 @@ const Home = () => {
             transition={{ duration: 0.7, delay: 0.25 }}
           >
             <div className="avatar-ring">
-              <img src="/profile_pic.jpg" alt="Mohamad Abu Ahmad" className="profile-picture" />
+              <img src={`${process.env.PUBLIC_URL}/profile_pic.jpg`} alt="Mohamad Abu Ahmad" className="profile-picture" />
             </div>
           </motion.div>
         </div>
