@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://www.mohamaddev.com/</loc></url>
-  <url><loc>https://www.mohamaddev.com/services</loc></url>
+  <url>
+    <loc>https://www.mohamaddev.com/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/services"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/services"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/services"/>
+  </url>
+  <url>
+    <loc>https://www.mohamaddev.com/ar/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/services"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/services"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/services"/>
+  </url>
+  <url>
+    <loc>https://www.mohamaddev.com/he/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/services"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/services"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/services"/>
+  </url>
   <url><loc>https://www.mohamaddev.com/apps</loc></url>
   <url><loc>https://www.mohamaddev.com/about</loc></url>
   <url><loc>https://www.mohamaddev.com/contact</loc></url>

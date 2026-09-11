@@ -1,33 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FiUser, FiClock, FiZap, FiCpu, FiUsers } from 'react-icons/fi';
 import useReducedMotion from '../../../hooks/useReducedMotion';
-import { automationDemo } from '../content';
+import { useServicesText } from '../i18n';
 import SectionHeading from './SectionHeading';
 
-const WHO = {
-  auto: { label: 'Automatic', Icon: FiZap },
-  ai: { label: 'AI', Icon: FiCpu },
-  team: { label: 'Your team', Icon: FiUsers },
-};
-
-const STEP_MS = 900;
+const WHO_ICON = { auto: FiZap, ai: FiCpu, team: FiUsers };
+const STEP_MS = 850;
 
 // Before/after comparison of one workflow. The "after" lane plays through its steps once
 // whenever it comes into view or the scenario changes (instantly with reduced motion).
+// Steps run top to bottom, so the flow reads the same in LTR and RTL.
 const AutomationDemo = () => {
-  const { scenarios } = automationDemo;
+  const { t, locale } = useServicesText();
+  const demo = t.demo;
+  const { scenarios } = demo;
   const [active, setActive] = useState(0);
-  const [played, setPlayed] = useState(0); // number of "after" steps lit up
+  const [played, setPlayed] = useState(0);
   const [inView, setInView] = useState(false);
   const reduced = useReducedMotion();
   const laneRef = useRef(null);
   const tabRefs = useRef([]);
   const scenario = scenarios[active];
+  const rtl = locale !== 'en';
 
   useEffect(() => {
-    const el = laneRef.current;
     const io = new IntersectionObserver(([entry]) => entry.isIntersecting && setInView(true), { threshold: 0.35 });
-    io.observe(el);
+    io.observe(laneRef.current);
     return () => io.disconnect();
   }, []);
 
@@ -48,8 +46,11 @@ const AutomationDemo = () => {
     return () => clearInterval(timer);
   }, [active, inView, reduced, scenario.after.length]);
 
+  // Arrow keys follow the visual order of the tabs, which is mirrored in RTL.
   const onTabKey = (e) => {
-    const dir = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    const forward = rtl ? 'ArrowLeft' : 'ArrowRight';
+    const back = rtl ? 'ArrowRight' : 'ArrowLeft';
+    const dir = { [forward]: 1, ArrowDown: 1, [back]: -1, ArrowUp: -1 }[e.key];
     let next = null;
     if (dir) next = (active + dir + scenarios.length) % scenarios.length;
     if (e.key === 'Home') next = 0;
@@ -63,9 +64,9 @@ const AutomationDemo = () => {
   return (
     <section id="automation-demo" className="svc-section svc-band" aria-labelledby="demo-title">
       <div className="svc-wrap">
-        <SectionHeading id="demo-title" eyebrow={automationDemo.eyebrow} title={automationDemo.title} intro={automationDemo.intro} />
+        <SectionHeading id="demo-title" eyebrow={demo.eyebrow} title={demo.title} intro={demo.intro} />
 
-        <div className="svc-tabs" role="tablist" aria-label="Example workflows" data-reveal>
+        <div className="svc-tabs" role="tablist" aria-label={demo.tabsLabel} data-reveal>
           {scenarios.map((s, i) => (
             <button
               key={s.id}
@@ -95,7 +96,7 @@ const AutomationDemo = () => {
         >
           <div className="svc-lane svc-lane--before">
             <h3 className="svc-lane__title">
-              <span className="svc-lane__tag">Today</span> Done by hand
+              <span className="svc-lane__tag">{demo.beforeTag}</span> {demo.beforeTitle}
             </h3>
             <ol className="svc-lane__steps">
               {scenario.before.map((text, i) => (
@@ -103,7 +104,7 @@ const AutomationDemo = () => {
                   <span className="svc-step__icon" aria-hidden="true"><FiUser /></span>
                   <span className="svc-step__text">{text}</span>
                   {i < scenario.before.length - 1 && (
-                    <span className="svc-step__wait"><FiClock aria-hidden="true" /> waits for someone</span>
+                    <span className="svc-step__wait"><FiClock aria-hidden="true" /> {demo.wait}</span>
                   )}
                 </li>
               ))}
@@ -112,11 +113,11 @@ const AutomationDemo = () => {
 
           <div className="svc-lane svc-lane--after">
             <h3 className="svc-lane__title">
-              <span className="svc-lane__tag svc-lane__tag--on">Automated</span> Handled by the system
+              <span className="svc-lane__tag svc-lane__tag--on">{demo.afterTag}</span> {demo.afterTitle}
             </h3>
             <ol className="svc-lane__steps">
               {scenario.after.map((step, i) => {
-                const { label, Icon } = WHO[step.who];
+                const Icon = WHO_ICON[step.who];
                 return (
                   <li
                     key={step.text}
@@ -124,15 +125,15 @@ const AutomationDemo = () => {
                   >
                     <span className="svc-step__icon" aria-hidden="true"><Icon /></span>
                     <span className="svc-step__text">{step.text}</span>
-                    <span className="svc-step__who">{label}</span>
+                    <span className="svc-step__who">{demo.who[step.who]}</span>
                   </li>
                 );
               })}
             </ol>
-            <p className="svc-lane__summary">{automationDemo.summary}</p>
+            <p className="svc-lane__summary">{demo.summary}</p>
           </div>
         </div>
-        <p className="svc-note">{automationDemo.note}</p>
+        <p className="svc-note">{demo.note}</p>
       </div>
     </section>
   );

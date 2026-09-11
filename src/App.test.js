@@ -17,7 +17,7 @@ test('loads public assets relative to PUBLIC_URL', () => {
       'src',
       '/profile-mohamad/profile_pic.jpg'
     );
-    expect(screen.getByText(/Download My CV/i).closest('a')).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /download my cv/i })).toHaveAttribute(
       'href',
       '/profile-mohamad/CV.pdf'
     );

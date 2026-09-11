@@ -1,32 +1,28 @@
 import React, { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
-import { explorer } from '../content';
+import { plural, useServicesText } from '../i18n';
+
+const FILTERS = ['all', 'ai', 'automation', 'web', 'webapp', 'mobile'];
 
 // "What can I build?" — plain-language ideas for visitors who don't know the technical name
 // of what they need. Each one pre-fills the lead form.
 const BuildExplorer = ({ onRequest }) => {
+  const { t, locale } = useServicesText();
+  const ex = t.explorer;
   const [filter, setFilter] = useState('all');
-  const items = filter === 'all' ? explorer.items : explorer.items.filter((i) => i.need === filter);
+  const items = filter === 'all' ? ex.items : ex.items.filter((i) => i.need === filter);
 
   return (
     <>
-      <div className="svc-filters" role="group" aria-label="Filter ideas by type" data-reveal>
-        {explorer.filters.map((f) => (
-          <button
-            key={f.id}
-            type="button"
-            className="svc-filter"
-            aria-pressed={filter === f.id}
-            onClick={() => setFilter(f.id)}
-          >
-            {f.label}
+      <div className="svc-filters" role="group" aria-label={ex.filtersLabel} data-reveal>
+        {FILTERS.map((id) => (
+          <button key={id} type="button" className="svc-filter" aria-pressed={filter === id} onClick={() => setFilter(id)}>
+            {ex.filters[id]}
           </button>
         ))}
       </div>
 
-      <p className="svc-sr" aria-live="polite">
-        {items.length} {items.length === 1 ? 'idea' : 'ideas'} shown
-      </p>
+      <p className="svc-sr" aria-live="polite">{plural(ex.shown, items.length, locale)}</p>
 
       <ul className="svc-ideas">
         {items.map((item) => (
@@ -37,10 +33,10 @@ const BuildExplorer = ({ onRequest }) => {
               href="#start"
               className="svc-idea__link"
               onClick={(e) =>
-                onRequest(e, { need: item.need, note: `I'm interested in: ${item.name}.`, source: `idea_${item.name}` })
+                onRequest(e, { need: item.need, note: ex.interested.replace('{name}', item.name), source: `idea_${item.need}` })
               }
             >
-              Talk about this <FiArrowRight aria-hidden="true" />
+              {ex.talk} <FiArrowRight className="svc-arrow" aria-hidden="true" />
               <span className="svc-sr"> — {item.name}</span>
             </a>
           </li>

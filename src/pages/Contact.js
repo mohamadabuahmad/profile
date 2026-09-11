@@ -171,7 +171,7 @@ const Contact = () => {
               </p>
             )}
 
-            <a href="mailto:mohamadadm25@gmail.com" className="contact-mail-link">
+            <a href="mailto:mohamdadm25@gmail.com" className="contact-mail-link">
               Or email me directly
             </a>
           </form>

@@ -187,3 +187,14 @@ a {
   background: var(--accent-soft);
   border-radius: 10px;
 }
+
+/* Arabic and Hebrew pages (currently /ar/services and /he/services) use IBM Plex,
+   which also covers Latin, for everything including the navbar and footer. */
+html:lang(ar) body,
+html:lang(ar) :is(h1, h2, h3, h4) {
+  font-family: "IBM Plex Sans Arabic", "Inter", system-ui, sans-serif;
+}
+html:lang(he) body,
+html:lang(he) :is(h1, h2, h3, h4) {
+  font-family: "IBM Plex Sans Hebrew", "Inter", system-ui, sans-serif;
+}

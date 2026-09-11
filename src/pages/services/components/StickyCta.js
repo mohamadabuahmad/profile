@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
+import { useServicesText } from '../i18n';
 
 // Mobile-only bar that keeps the main CTA within reach once the hero has scrolled away.
 // It hides again when the lead form is on screen or already passed.
 const StickyCta = ({ heroId, formId, onRequest }) => {
+  const { t } = useServicesText();
   const [heroGone, setHeroGone] = useState(false);
   const [formReached, setFormReached] = useState(false);
 
@@ -31,7 +33,7 @@ const StickyCta = ({ heroId, formId, onRequest }) => {
         tabIndex={visible ? 0 : -1}
         onClick={(e) => onRequest(e, { source: 'sticky' })}
       >
-        Tell Me What You Want to Solve <FiArrowRight aria-hidden="true" />
+        {t.sticky} <FiArrowRight className="svc-arrow" aria-hidden="true" />
       </a>
     </div>
   );

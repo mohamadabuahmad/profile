@@ -1,32 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from 'react-icons/fa';
+import { CHROME, LOCALES, localeFromPath } from '../i18n/locales';
 import './Footer.css';
 
 const Footer = () => {
+  const locale = localeFromPath(useLocation().pathname);
+  const text = CHROME[locale];
   return (
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <span className="footer-logo">Mohamad<span className="dot">.</span></span>
-          <p className="footer-tagline">
-            Software Engineer &amp; Full Stack Developer building modern, reliable
-            web and mobile experiences.
-          </p>
+          <span className="footer-logo" dir="ltr">Mohamad<span className="dot">.</span></span>
+          <p className="footer-tagline">{text.tagline}</p>
         </div>
 
         <div className="footer-cols">
           <div className="footer-col">
-            <h4>Navigate</h4>
-            <Link to="/">Home</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/apps">Projects</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+            <h4>{text.navigate}</h4>
+            <Link to="/">{text.nav.home}</Link>
+            <Link to={LOCALES[locale].servicesPath}>{text.nav.services}</Link>
+            <Link to="/apps">{text.nav.projects}</Link>
+            <Link to="/about">{text.nav.about}</Link>
+            <Link to="/contact">{text.nav.contact}</Link>
           </div>
 
           <div className="footer-col">
-            <h4>Connect</h4>
+            <h4>{text.connect}</h4>
             <div className="footer-socials">
               <a
                 href="https://www.linkedin.com/in/mohamad-abu-ahmad-817a82262/"
@@ -61,7 +61,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Mohamad Abu Ahmad. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} <bdi>Mohamad Abu Ahmad.</bdi> {text.rights}</p>
       </div>
     </footer>
   );

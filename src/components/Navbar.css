@@ -145,7 +145,8 @@ html, body, #root {
 
   .nav-links {
     position: fixed;
-    inset: 0 0 0 auto;
+    inset-block: 0;
+    inset-inline-end: 0;
     width: min(78vw, 320px);
     flex-direction: column;
     align-items: flex-start;
@@ -153,13 +154,21 @@ html, body, #root {
     gap: 18px;
     padding: 40px;
     background: var(--bg-2);
-    border-left: 1px solid var(--border);
+    border-inline-start: 1px solid var(--border);
     box-shadow: var(--shadow-lg);
-    transform: translateX(110%);
+    transform: translateX(110%); /* physical: slides in from the right edge */
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .nav-links.open {
+    transform: translateX(0);
+  }
+
+  /* In RTL the drawer lives on the left edge, so it slides in from the left. */
+  [dir="rtl"] .nav-links {
+    transform: translateX(-110%);
+  }
+  [dir="rtl"] .nav-links.open {
     transform: translateX(0);
   }
 

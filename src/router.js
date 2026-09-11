@@ -7,8 +7,27 @@ import Contact from './pages/Contact';
 import LandingPage from './pages/landingpage';
 import MainLayout from './layouts/MainLayout';
 
-// The services page is large; load it only when visited.
-const Services = lazy(() => import(/* webpackChunkName: "services" */ './pages/services/ServicesPage'));
+// The services page is large and published in three languages: load the page code and only
+// the visitor's language when visited.
+const LOCALE_LOADERS = {
+  en: () => import(/* webpackChunkName: "services-en" */ './pages/services/locales/en.json'),
+  ar: () => import(/* webpackChunkName: "services-ar" */ './pages/services/locales/ar.json'),
+  he: () => import(/* webpackChunkName: "services-he" */ './pages/services/locales/he.json'),
+};
+const servicesIn = (locale) =>
+  lazy(() =>
+    Promise.all([import(/* webpackChunkName: "services" */ './pages/services/ServicesPage'), LOCALE_LOADERS[locale]()]).then(
+      ([page, content]) => ({ default: () => <page.default locale={locale} content={content.default} /> })
+    )
+  );
+const SERVICES = { en: servicesIn('en'), ar: servicesIn('ar'), he: servicesIn('he') };
+
+const servicesRoute = (locale) => (
+  <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+    {React.createElement(SERVICES[locale])}
+  </Suspense>
+);
+
 const AppRouter = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
@@ -19,14 +38,9 @@ const AppRouter = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/my-services" element={<LandingPage />} />
-          <Route
-            path="/services"
-            element={
-              <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
-                <Services />
-              </Suspense>
-            }
-          />
+          <Route path="/services" element={servicesRoute('en')} />
+          <Route path="/ar/services" element={servicesRoute('ar')} />
+          <Route path="/he/services" element={servicesRoute('he')} />
         </Routes>
       </MainLayout>
     </Router>

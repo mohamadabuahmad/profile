@@ -2,40 +2,50 @@ import React, { useEffect, useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { FiArrowRight, FiCheckCircle, FiAlertCircle, FiLoader } from 'react-icons/fi';
 import { trackEvent } from '../../../analytics';
-import { NEEDS, BUDGETS, closing } from '../content';
+import { LOCALES } from '../../../i18n/locales';
+import { fill, plural, useServicesText } from '../i18n';
+import site from '../site';
 
+export const NEED_IDS = ['ai', 'automation', 'web', 'webapp', 'mobile', 'unsure'];
+export const BUDGET_IDS = ['unsure', 'lt2k', '2k-5k', '5k-15k', '15k+'];
 const EMPTY = { name: '', company: '', email: '', phone: '', needs: [], budget: '', message: '', website: '' };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^\+?[\d\s().-]{7,20}$/;
 const FIELD_ORDER = ['name', 'email', 'phone', 'needs', 'message'];
 
+// Returns error keys; the visible messages come from the active locale.
 export const validate = (v) => {
   const errors = {};
-  if (v.name.trim().length < 2) errors.name = 'Please enter your name.';
-  if (!EMAIL_RE.test(v.email.trim())) errors.email = 'Please enter a valid email so I can reply.';
-  if (v.phone.trim() && !PHONE_RE.test(v.phone.trim())) errors.phone = 'That phone number looks incomplete.';
-  if (v.needs.length === 0) errors.needs = "Choose at least one — 'Not Sure Yet' is fine.";
-  if (v.message.trim().length < 15) errors.message = 'A sentence or two about the problem is enough.';
+  if (v.name.trim().length < 2) errors.name = true;
+  if (!EMAIL_RE.test(v.email.trim())) errors.email = true;
+  if (v.phone.trim() && !PHONE_RE.test(v.phone.trim())) errors.phone = true;
+  if (v.needs.length === 0) errors.needs = true;
+  if (v.message.trim().length < 15) errors.message = true;
   return errors;
 };
 
-const labelsFor = (ids) => NEEDS.filter((n) => ids.includes(n.id)).map((n) => n.label).join(', ');
+// The lead email is for Mohamad, so it is always written in English, whatever language
+// the visitor used — with that language noted.
+const { emailLabels } = site;
+const needLabels = (ids) => NEED_IDS.filter((id) => ids.includes(id)).map((id) => emailLabels.needs[id]).join(', ');
 
-export const buildEmail = (v) => ({
+export const buildEmail = (v, locale = 'en') => ({
   name: v.name.trim(),
   email: v.email.trim(),
   reply_to: v.email.trim(),
   phone: v.phone.trim(),
   company: v.company.trim(),
-  service: labelsFor(v.needs),
-  budget: v.budget,
+  service: needLabels(v.needs),
+  budget: v.budget ? emailLabels.budgets[v.budget] : '',
+  language: LOCALES[locale].name,
   message: [
-    'New project inquiry — mohamaddev.com/services',
+    `New project inquiry — mohamaddev.com${LOCALES[locale].servicesPath}`,
     '',
-    `Needs: ${labelsFor(v.needs)}`,
+    `Needs: ${needLabels(v.needs)}`,
     `Company: ${v.company.trim() || '—'}`,
     `Phone: ${v.phone.trim() || '—'}`,
-    `Budget: ${v.budget || '—'}`,
+    `Budget: ${v.budget ? emailLabels.budgets[v.budget] : '—'}`,
+    `Language: ${LOCALES[locale].name}`,
     '',
     'The problem:',
     v.message.trim(),
@@ -45,6 +55,8 @@ export const buildEmail = (v) => ({
 // Lead form. `preset` ({ need, note, nonce }) comes from CTAs elsewhere on the page and
 // pre-selects what the visitor clicked, so they never have to repeat it.
 const LeadForm = ({ preset }) => {
+  const { t, locale } = useServicesText();
+  const f = t.form;
   const [values, setValues] = useState(EMPTY);
   const [touched, setTouched] = useState({});
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
@@ -68,18 +80,20 @@ const LeadForm = ({ preset }) => {
 
   const errors = validate(values);
   const show = (name) => touched[name] && errors[name];
+  const error = (name) => show(name) && <p id={`${name}-error`} className="svc-field__error">{f.errors[name]}</p>;
+  const describedBy = (name, hint) => [hint, show(name) ? `${name}-error` : null].filter(Boolean).join(' ') || undefined;
 
   const set = (name) => (e) => setValues((v) => ({ ...v, [name]: e.target.value }));
-  const blur = (name) => () => setTouched((t) => ({ ...t, [name]: true }));
+  const blur = (name) => () => setTouched((tch) => ({ ...tch, [name]: true }));
   const toggleNeed = (id) => {
     setValues((v) => ({ ...v, needs: v.needs.includes(id) ? v.needs.filter((n) => n !== id) : [...v.needs, id] }));
-    setTouched((t) => ({ ...t, needs: true }));
+    setTouched((tch) => ({ ...tch, needs: true }));
   };
 
   const onFocusCapture = () => {
     if (started.current) return;
     started.current = true;
-    trackEvent('Services', 'lead_form_start', preset?.source || 'direct');
+    trackEvent('Services', 'lead_form_start', `${locale}:${preset?.source || 'direct'}`);
   };
 
   const onSubmit = async (e) => {
@@ -88,9 +102,8 @@ const LeadForm = ({ preset }) => {
     const found = Object.keys(errors);
     if (found.length) {
       setTouched({ name: true, email: true, phone: true, needs: true, message: true });
-      setSummary(`Please check ${found.length === 1 ? '1 field' : `${found.length} fields`} before sending.`);
-      const first = FIELD_ORDER.find((f) => errors[f]);
-      fields.current[first]?.focus();
+      setSummary(plural(f.summary, found.length, locale));
+      fields.current[FIELD_ORDER.find((k) => errors[k])]?.focus();
       return;
     }
     setSummary('');
@@ -100,18 +113,18 @@ const LeadForm = ({ preset }) => {
       return;
     }
     setStatus('sending');
-    trackEvent('Services', 'lead_form_submit', labelsFor(values.needs));
+    trackEvent('Services', 'lead_form_submit', `${locale}:${needLabels(values.needs)}`);
     try {
       await emailjs.send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        buildEmail(values),
+        buildEmail(values, locale),
         process.env.REACT_APP_EMAILJS_USER_ID
       );
-      trackEvent('Services', 'lead_form_success', labelsFor(values.needs));
+      trackEvent('Services', 'lead_form_success', `${locale}:${needLabels(values.needs)}`);
       setStatus('success');
     } catch (err) {
-      trackEvent('Services', 'lead_form_error', String(err?.status || 'unknown'));
+      trackEvent('Services', 'lead_form_error', `${locale}:${err?.status || 'unknown'}`);
       setStatus('error');
     }
   };
@@ -123,33 +136,34 @@ const LeadForm = ({ preset }) => {
   };
 
   if (status === 'success') {
+    const first = values.name.trim().split(/\s+/)[0];
+    const email = values.email.trim();
     return (
       <div className="svc-form svc-form--done" role="status">
         <FiCheckCircle className="svc-form__done-icon" aria-hidden="true" />
         <h3 className="svc-form__title" tabIndex={-1} ref={resultRef}>
-          Thanks{values.name ? `, ${values.name.trim().split(' ')[0]}` : ''} — your message is in.
+          {first ? fill(f.successTitleNamed, { first: <bdi>{first}</bdi> }) : f.successTitle}
         </h3>
         <p>
-          I'll read it personally and reply by email{values.email ? ` to ${values.email.trim()}` : ''}. If it's
-          a fit, the next step is a short call about the problem.
+          {fill(f.successBody, {
+            to: email ? fill(f.successTo, { email: <bdi dir="ltr">{email}</bdi> }) : '',
+          })}
         </p>
         <button type="button" className="svc-link" onClick={reset}>
-          Send another message
+          {f.another}
         </button>
       </div>
     );
   }
 
-  const mailto = `mailto:${closing.email}?subject=${encodeURIComponent('Project inquiry')}&body=${encodeURIComponent(
-    values.message
-  )}`;
-  const describedBy = (name, hint) => [hint, show(name) ? `${name}-error` : null].filter(Boolean).join(' ') || undefined;
+  const mailto = `mailto:${site.email}?subject=${encodeURIComponent(f.mailSubject)}&body=${encodeURIComponent(values.message)}`;
+  const optional = <span className="svc-field__opt">{f.optional}</span>;
 
   return (
-    <form className="svc-form" onSubmit={onSubmit} onFocusCapture={onFocusCapture} noValidate>
+    <form className="svc-form" aria-labelledby="start-form-title" onSubmit={onSubmit} onFocusCapture={onFocusCapture} noValidate>
       <div className="svc-form__grid">
         <div className="svc-field">
-          <label htmlFor="lf-name">Name</label>
+          <label htmlFor="lf-name">{f.name}</label>
           <input
             id="lf-name"
             ref={(el) => (fields.current.name = el)}
@@ -162,23 +176,22 @@ const LeadForm = ({ preset }) => {
             aria-describedby={describedBy('name')}
             required
           />
-          {show('name') && <p id="name-error" className="svc-field__error">{errors.name}</p>}
+          {error('name')}
         </div>
 
         <div className="svc-field">
-          <label htmlFor="lf-company">
-            Business / company <span className="svc-field__opt">optional</span>
-          </label>
+          <label htmlFor="lf-company">{f.company} {optional}</label>
           <input id="lf-company" name="company" autoComplete="organization" value={values.company} onChange={set('company')} />
         </div>
 
         <div className="svc-field">
-          <label htmlFor="lf-email">Email</label>
+          <label htmlFor="lf-email">{f.email}</label>
           <input
             id="lf-email"
             ref={(el) => (fields.current.email = el)}
             type="email"
             name="email"
+            dir="ltr"
             autoComplete="email"
             inputMode="email"
             value={values.email}
@@ -188,18 +201,17 @@ const LeadForm = ({ preset }) => {
             aria-describedby={describedBy('email')}
             required
           />
-          {show('email') && <p id="email-error" className="svc-field__error">{errors.email}</p>}
+          {error('email')}
         </div>
 
         <div className="svc-field">
-          <label htmlFor="lf-phone">
-            Phone <span className="svc-field__opt">optional</span>
-          </label>
+          <label htmlFor="lf-phone">{f.phone} {optional}</label>
           <input
             id="lf-phone"
             ref={(el) => (fields.current.phone = el)}
             type="tel"
             name="phone"
+            dir="ltr"
             autoComplete="tel"
             value={values.phone}
             onChange={set('phone')}
@@ -207,47 +219,43 @@ const LeadForm = ({ preset }) => {
             aria-invalid={!!show('phone')}
             aria-describedby={describedBy('phone')}
           />
-          {show('phone') && <p id="phone-error" className="svc-field__error">{errors.phone}</p>}
+          {error('phone')}
         </div>
       </div>
 
       <fieldset className="svc-field svc-needs" aria-describedby={show('needs') ? 'needs-error' : undefined}>
-        <legend>What do you need help with?</legend>
+        <legend>{f.needsLegend}</legend>
         <div className="svc-needs__options">
-          {NEEDS.map((n, i) => (
-            <label key={n.id} className="svc-need">
+          {NEED_IDS.map((id, i) => (
+            <label key={id} className="svc-need">
               <input
                 type="checkbox"
                 name="needs"
-                value={n.id}
+                value={id}
                 ref={i === 0 ? (el) => (fields.current.needs = el) : undefined}
-                checked={values.needs.includes(n.id)}
-                onChange={() => toggleNeed(n.id)}
+                checked={values.needs.includes(id)}
+                onChange={() => toggleNeed(id)}
               />
-              <span>{n.label}</span>
+              <span>{f.needs[id]}</span>
             </label>
           ))}
         </div>
-        {show('needs') && <p id="needs-error" className="svc-field__error">{errors.needs}</p>}
+        {error('needs')}
       </fieldset>
 
       <div className="svc-field">
-        <label htmlFor="lf-budget">
-          Budget range <span className="svc-field__opt">optional</span>
-        </label>
+        <label htmlFor="lf-budget">{f.budgetLabel} {optional}</label>
         <select id="lf-budget" name="budget" value={values.budget} onChange={set('budget')}>
-          <option value="">Prefer not to say</option>
-          {BUDGETS.map((b) => (
-            <option key={b} value={b}>{b}</option>
+          <option value="">{f.budgetNone}</option>
+          {BUDGET_IDS.map((id) => (
+            <option key={id} value={id}>{f.budgets[id]}</option>
           ))}
         </select>
       </div>
 
       <div className="svc-field">
-        <label htmlFor="lf-message">Tell me about the problem you want to solve</label>
-        <p id="message-hint" className="svc-field__hint">
-          What happens today, what's frustrating about it, and what "better" would look like.
-        </p>
+        <label htmlFor="lf-message">{f.messageLabel}</label>
+        <p id="message-hint" className="svc-field__hint">{f.messageHint}</p>
         <textarea
           id="lf-message"
           ref={(el) => (fields.current.message = el)}
@@ -260,7 +268,7 @@ const LeadForm = ({ preset }) => {
           aria-describedby={describedBy('message', 'message-hint')}
           required
         />
-        {show('message') && <p id="message-error" className="svc-field__error">{errors.message}</p>}
+        {error('message')}
       </div>
 
       {/* Honeypot: hidden from people and assistive tech, bots tend to fill it in. */}
@@ -274,25 +282,22 @@ const LeadForm = ({ preset }) => {
       {status === 'error' && (
         <div className="svc-form__error" tabIndex={-1} ref={resultRef}>
           <FiAlertCircle aria-hidden="true" />
-          <p>
-            Your message couldn't be sent. Nothing you typed was lost — please try again, or{' '}
-            <a href={mailto}>email me directly</a>.
-          </p>
+          <p>{fill(f.failure, { link: <a href={mailto}>{f.failureLink}</a> })}</p>
         </div>
       )}
 
       <button type="submit" className="svc-btn svc-btn--primary svc-btn--block" disabled={status === 'sending'}>
         {status === 'sending' ? (
           <>
-            <FiLoader className="svc-spin" aria-hidden="true" /> Sending…
+            <FiLoader className="svc-spin" aria-hidden="true" /> {f.sending}
           </>
         ) : (
           <>
-            Discuss My Project <FiArrowRight aria-hidden="true" />
+            {f.submit} <FiArrowRight className="svc-arrow" aria-hidden="true" />
           </>
         )}
       </button>
-      <p className="svc-form__fine">Your details are only used to reply to your message.</p>
+      <p className="svc-form__fine">{f.fine}</p>
     </form>
   );
 };

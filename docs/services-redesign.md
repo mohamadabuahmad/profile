@@ -59,3 +59,24 @@ Mobile adds a small sticky CTA once the hero is out of view (hidden while the fo
 - **Breakpoints** 640 / 900 / 1200
 - **Motion** reveal 600ms `cubic-bezier(.2,.7,.2,1)`, 16px rise; hover 200ms; data "pulses" only in diagrams. `prefers-reduced-motion`: no transforms, no pulses, content shown immediately.
 - **Icons** react-icons Feather set (`react-icons/fi`), already a dependency
+
+## 5. Languages (English, Arabic, Hebrew) — added 2026-09-11
+
+- Routes: `/services`, `/ar/services`, `/he/services`. Only the services page is translated;
+  on its Arabic/Hebrew versions the navbar and footer are localized too (`src/i18n/locales.js`).
+- Copy: `src/pages/services/locales/{en,ar,he}.json`, identical shape (a unit test enforces
+  this). One component tree reads the active file through `useServicesText()`. Each language is
+  its own lazy chunk; the page code is shared.
+- Arabic and Hebrew are written natively, not translated word for word. Hebrew uses plural
+  "you" (אתם) and ungendered first-person forms for the site owner's voice.
+- RTL: `<html lang/dir>` is set while the page is mounted and restored on leave. Layout uses
+  logical properties; the few physical-only values (transforms, transform-origin) read
+  `--svc-flip` / `--svc-start`. Arrows mirror, flows and progress lines run in reading order,
+  the navbar drawer opens from the left, email/phone inputs stay LTR, numeric runs are isolated.
+- Type: IBM Plex Sans Arabic / Hebrew (both include Latin) on those routes; no letter-spacing,
+  uppercase or monospace labels in RTL scripts; taller line-height for Arabic.
+- SEO: `scripts/prerender-seo.js` writes a static head per language (lang/dir, title,
+  description, canonical, hreflang incl. x-default, og:locale, localized JSON-LD, font, chunk
+  preloads). `public/sitemap.xml` lists all three with alternates. Localized OG images.
+- Leads: the form is localized, but the email Mohamad receives is always English, with the
+  visitor's language noted.
