@@ -27,5 +27,9 @@ window.IntersectionObserver = class {
   takeRecords() { return []; }
 };
 
+// jsdom has no layout, so scrollIntoView doesn't exist.
+Element.prototype.scrollIntoView = jest.fn();
+window.scrollTo = jest.fn();
+
 // Keep tests from loading the real Google Analytics script.
 jest.mock('react-ga4', () => ({ initialize: jest.fn(), send: jest.fn(), event: jest.fn() }));

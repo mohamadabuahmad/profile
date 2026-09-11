@@ -1,7 +1,7 @@
 /* ============================================================
    Global Design System — modern, professional, theme-aware
    ============================================================ */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+/* Fonts (Inter, Space Grotesk) are loaded from public/index.html */
 
 /* ---------- Design tokens : DARK (default) ---------- */
 :root,

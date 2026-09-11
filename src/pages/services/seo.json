@@ -1,0 +1,15 @@
+{
+  "path": "/services",
+  "siteUrl": "https://www.mohamaddev.com",
+  "title": "AI, Automation & Custom Software for Businesses | Mohamad Dev",
+  "description": "AI assistants, business automation and integrations, websites and Shopify stores, custom web apps and mobile apps — designed and built around your business problem.",
+  "ogImage": "/og-services.png",
+  "ogImageAlt": "Mohamad Dev — AI and digital solutions built around your business",
+  "services": [
+    { "name": "AI Solutions", "description": "Custom AI assistants, company knowledge assistants, document intelligence and AI features for existing products." },
+    { "name": "AI Automation & Integrations", "description": "Workflow automation, CRM and email automation, API and Shopify integrations, and AI agents for routine tasks." },
+    { "name": "Websites & E-Commerce", "description": "Company websites, landing pages, Shopify development and conversion-focused redesigns." },
+    { "name": "Custom Web Applications", "description": "Dashboards, booking and inventory systems, customer portals, marketplaces and SaaS platforms." },
+    { "name": "Mobile Applications", "description": "iOS and Android apps for customers and operations, connected to existing business systems." }
+  ]
+}

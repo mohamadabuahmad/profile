@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Apps from './pages/Apps';  // Import the new Apps page
 import About from './pages/About';
 import Contact from './pages/Contact';
 import LandingPage from './pages/landingpage';
-import Services from './pages/Services';
 import MainLayout from './layouts/MainLayout';
+
+// The services page is large; load it only when visited.
+const Services = lazy(() => import(/* webpackChunkName: "services" */ './pages/services/ServicesPage'));
 const AppRouter = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
@@ -17,7 +19,14 @@ const AppRouter = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/my-services" element={<LandingPage />} />
-          <Route path="/services" element={<Services />} />
+          <Route
+            path="/services"
+            element={
+              <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+                <Services />
+              </Suspense>
+            }
+          />
         </Routes>
       </MainLayout>
     </Router>
