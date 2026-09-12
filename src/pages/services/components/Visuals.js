@@ -7,30 +7,30 @@ import { useServicesText } from '../i18n';
 // logical properties, so each one mirrors naturally in Arabic and Hebrew.
 
 const Frame = ({ caption, className, children }) => (
-  <figure className={`svc-visual ${className}`}>
-    <div className="svc-visual__stage" aria-hidden="true">{children}</div>
-    <figcaption className="svc-visual__caption">{caption}</figcaption>
+  <figure className={`ds-visual ${className}`}>
+    <div className="ds-visual__stage" aria-hidden="true">{children}</div>
+    <figcaption className="ds-visual__caption">{caption}</figcaption>
   </figure>
 );
 
 export const AiVisual = () => {
   const v = useServicesText().t.visuals.ai;
   return (
-    <Frame className="svc-visual--ai" caption={v.caption}>
-      <div className="svc-chat">
-        <div className="svc-chat__bar">
-          <span className="svc-dot svc-dot--live" />
+    <Frame className="ds-visual--ai" caption={v.caption}>
+      <div className="ds-chat">
+        <div className="ds-chat__bar">
+          <span className="ds-dot ds-dot--live" />
           {v.bar}
         </div>
-        <p className="svc-chat__msg svc-chat__msg--user">{v.question}</p>
-        <div className="svc-chat__msg svc-chat__msg--ai">
-          <span className="svc-chat__typing">
+        <p className="ds-chat__msg ds-chat__msg--user">{v.question}</p>
+        <div className="ds-chat__msg ds-chat__msg--ai">
+          <span className="ds-chat__typing">
             <i />
             <i />
             <i />
           </span>
-          <span className="svc-chat__answer">{v.answer}</span>
-          <span className="svc-chat__source">
+          <span className="ds-chat__answer">{v.answer}</span>
+          <span className="ds-chat__source">
             <FiFileText /> {v.source}
           </span>
         </div>
@@ -42,20 +42,20 @@ export const AiVisual = () => {
 export const AutomationVisual = () => {
   const v = useServicesText().t.visuals.automation;
   return (
-    <Frame className="svc-visual--automation" caption={v.caption}>
-      <div className="svc-bus">
-        <ul className="svc-bus__side svc-bus__side--in">
+    <Frame className="ds-visual--automation" caption={v.caption}>
+      <div className="ds-bus">
+        <ul className="ds-bus__side ds-bus__side--in">
           {v.sources.map((s, i) => (
             <li key={s} style={{ '--d': i }}>{s}</li>
           ))}
         </ul>
-        <div className="svc-bus__hub">
-          <span className="svc-bus__hub-title">{v.hubTitle}</span>
+        <div className="ds-bus__hub">
+          <span className="ds-bus__hub-title">{v.hubTitle}</span>
           {v.hubVerbs.map((verb) => (
             <span key={verb}>{verb}</span>
           ))}
         </div>
-        <ul className="svc-bus__side svc-bus__side--out">
+        <ul className="ds-bus__side ds-bus__side--out">
           {v.actions.map((s, i) => (
             <li key={s} style={{ '--d': i }}>
               <FiCheck /> {s}
@@ -70,32 +70,32 @@ export const AutomationVisual = () => {
 export const WebVisual = () => {
   const v = useServicesText().t.visuals.web;
   return (
-    <Frame className="svc-visual--web" caption={v.caption}>
-      <div className="svc-browser">
-        <div className="svc-browser__bar">
+    <Frame className="ds-visual--web" caption={v.caption}>
+      <div className="ds-browser">
+        <div className="ds-browser__bar">
           <span />
           <span />
           <span />
           <em dir="ltr">{v.url}</em>
         </div>
-        <div className="svc-browser__page">
-          <div className="svc-wire svc-wire--nav"><i /><i /><i /></div>
-          <div className="svc-wire svc-wire--hero">
-            <b className="svc-pin">1</b>
-            <i className="svc-wire__h" />
-            <i className="svc-wire__p" />
-            <span className="svc-wire__btn">
+        <div className="ds-browser__page">
+          <div className="ds-wire ds-wire--nav"><i /><i /><i /></div>
+          <div className="ds-wire ds-wire--hero">
+            <b className="ds-pin">1</b>
+            <i className="ds-wire__h" />
+            <i className="ds-wire__p" />
+            <span className="ds-wire__btn">
               {v.button}
-              <b className="svc-pin svc-pin--btn">3</b>
+              <b className="ds-pin ds-pin--btn">3</b>
             </span>
           </div>
-          <div className="svc-wire svc-wire--proof">
-            <b className="svc-pin">2</b>
+          <div className="ds-wire ds-wire--proof">
+            <b className="ds-pin">2</b>
             <i /><i /><i />
           </div>
         </div>
       </div>
-      <ol className="svc-legend">
+      <ol className="ds-legend">
         {v.legend.map((item, i) => (
           <li key={item}><b>{i + 1}</b> {item}</li>
         ))}
@@ -107,33 +107,33 @@ export const WebVisual = () => {
 export const WebAppVisual = () => {
   const v = useServicesText().t.visuals.webapp;
   return (
-    <Frame className="svc-visual--webapp" caption={v.caption}>
-      <div className="svc-dash">
-        <nav className="svc-dash__side">
-          <span className="svc-dash__logo" />
+    <Frame className="ds-visual--webapp" caption={v.caption}>
+      <div className="ds-dash">
+        <nav className="ds-dash__side">
+          <span className="ds-dash__logo" />
           <FiGrid /><FiBox /><FiCalendar /><FiUsers /><FiSettings />
         </nav>
-        <div className="svc-dash__main">
-          <div className="svc-dash__top"><i /><span className="svc-dash__avatar" /></div>
-          <div className="svc-dash__tiles">
+        <div className="ds-dash__main">
+          <div className="ds-dash__top"><i /><span className="ds-dash__avatar" /></div>
+          <div className="ds-dash__tiles">
             {v.tiles.map((tile) => (
-              <div key={tile} className="svc-dash__tile">
+              <div key={tile} className="ds-dash__tile">
                 <span>{tile}</span>
                 <i />
               </div>
             ))}
           </div>
-          <div className="svc-dash__chart">
+          <div className="ds-dash__chart">
             {[42, 58, 50, 72, 64, 86, 78].map((h, i) => (
               <i key={i} style={{ '--h': `${h}%`, '--d': i }} />
             ))}
           </div>
-          <ul className="svc-dash__table">
+          <ul className="ds-dash__table">
             {v.rows.map((r) => (
               <li key={r.name}>
                 <span>{r.name}</span>
                 <i />
-                <em className={`svc-status svc-status--${r.tone}`}>{r.status}</em>
+                <em className={`ds-status ds-status--${r.tone}`}>{r.status}</em>
               </li>
             ))}
           </ul>
@@ -146,24 +146,24 @@ export const WebAppVisual = () => {
 export const MobileVisual = () => {
   const v = useServicesText().t.visuals.mobile;
   return (
-    <Frame className="svc-visual--mobile" caption={v.caption}>
-      <div className="svc-phone">
-        <div className="svc-phone__notch" />
-        <div className="svc-phone__screen">
-          <div className="svc-phone__toast">
+    <Frame className="ds-visual--mobile" caption={v.caption}>
+      <div className="ds-phone">
+        <div className="ds-phone__notch" />
+        <div className="ds-phone__screen">
+          <div className="ds-phone__toast">
             <FiBell /> <span>{v.toast}</span>
           </div>
-          <p className="svc-phone__title">{v.title}</p>
+          <p className="ds-phone__title">{v.title}</p>
           {v.cards.map((c) => (
-            <div key={c.time} className="svc-phone__card">
-              <span className="svc-phone__day">{c.day}</span>
+            <div key={c.time} className="ds-phone__card">
+              <span className="ds-phone__day">{c.day}</span>
               <span>
-                <strong className="svc-num">{c.time}</strong>
+                <strong className="ds-num">{c.time}</strong>
                 <em>{c.label}</em>
               </span>
             </div>
           ))}
-          <span className="svc-phone__btn">{v.button}</span>
+          <span className="ds-phone__btn">{v.button}</span>
         </div>
       </div>
     </Frame>

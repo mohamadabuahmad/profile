@@ -25,7 +25,7 @@ const upsert = (selector, create) => {
   return { el, created };
 };
 
-export default function useSeo({ title, description, url, image, locale, alternates = [] }) {
+export default function useSeo({ title, description, url, image, locale, robots, alternates = [] }) {
   const alternatesKey = alternates.map((a) => `${a.hrefLang}=${a.href}`).join('|');
 
   useEffect(() => {
@@ -47,6 +47,18 @@ export default function useSeo({ title, description, url, image, locale, alterna
       el.setAttribute('content', values[field]);
       restore.push(() => (created ? el.remove() : el.setAttribute('content', prev)));
     });
+
+    // Pages that shouldn't be indexed (404) add a robots meta while they are mounted.
+    if (robots) {
+      const { el, created: madeRobots } = upsert('meta[name="robots"]', () => {
+        const m = document.createElement('meta');
+        m.setAttribute('name', 'robots');
+        return m;
+      });
+      const prev = el.getAttribute('content');
+      el.setAttribute('content', robots);
+      restore.push(() => (madeRobots ? el.remove() : el.setAttribute('content', prev)));
+    }
 
     const { el: canonical, created } = upsert('link[rel="canonical"]', () => {
       const l = document.createElement('link');
@@ -72,5 +84,5 @@ export default function useSeo({ title, description, url, image, locale, alterna
     restore.push(() => links.forEach((l) => l.remove()));
 
     return () => restore.reverse().forEach((fn) => fn());
-  }, [title, description, url, image, locale, alternatesKey]);
+  }, [title, description, url, image, locale, robots, alternatesKey]);
 }

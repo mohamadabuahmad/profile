@@ -1,0 +1,616 @@
+{
+  "meta": {
+    "home": {
+      "title": "Mohamad Dev — AI, Automation & Software for Businesses",
+      "description": "I design and build AI solutions, business automation, integrations, websites, web platforms and mobile apps around real business problems.",
+      "image": "/og-services.png"
+    },
+    "work": {
+      "title": "Work — Real Products, Shipped | Mohamad Dev",
+      "description": "Selected projects: native mobile apps, a real-time web platform, automation services and internal systems — explained as problem, solution and result.",
+      "image": "/og-services.png"
+    },
+    "about": {
+      "title": "About Mohamad Abu Ahmad — Software Engineer | Mohamad Dev",
+      "description": "Software engineer building AI, automation, web and mobile solutions for businesses. Full-stack experience, B.Sc. in Software Engineering, direct communication.",
+      "image": "/og-services.png"
+    },
+    "contact": {
+      "title": "Start a Project — Contact Mohamad Dev",
+      "description": "Tell me the business problem you want to solve. You get a clear recommendation and an estimate before any work starts.",
+      "image": "/og-services.png"
+    },
+    "notfound": {
+      "title": "Page Not Found | Mohamad Dev",
+      "description": "This page doesn't exist."
+    }
+  },
+  "nav": {
+    "home": "Mohamad Dev — home",
+    "primary": "Main",
+    "skip": "Skip to content",
+    "menu": "Open menu",
+    "close": "Close menu",
+    "theme": "Switch light or dark appearance",
+    "language": "Language",
+    "cta": "Start a project",
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "work": "Work",
+      "about": "About",
+      "contact": "Contact"
+    }
+  },
+  "footer": {
+    "tagline": "AI solutions, automation, websites, web platforms and mobile apps — built around real business problems.",
+    "columns": {
+      "site": "Site",
+      "solutions": "Solutions",
+      "contact": "Contact"
+    },
+    "solutions": [
+      "AI solutions",
+      "Automation & integrations",
+      "Websites & e-commerce",
+      "Web applications",
+      "Mobile applications"
+    ],
+    "cta": "Start a project",
+    "rights": "All rights reserved.",
+    "social": {
+      "linkedin": "LinkedIn profile",
+      "github": "GitHub profile",
+      "instagram": "Instagram profile"
+    }
+  },
+  "cta": {
+    "title": "Have a business problem that technology could solve?",
+    "text": "You don't need to know the stack or the exact solution. Start with the problem — I'll help you work out the rest.",
+    "primary": "Tell Me What You Want to Solve",
+    "secondary": "See the services"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "AI · Automation · Software",
+      "title": "Technology built around your business.",
+      "lede": "I design and build AI solutions, automations, websites, web platforms and mobile apps — around the way your business actually works.",
+      "primary": "Tell Me What You Want to Solve",
+      "secondary": "Explore My Work",
+      "points": [
+        "One engineer, first call to launch",
+        "AI, web and mobile under one roof",
+        "Built in English, Arabic and Hebrew"
+      ],
+      "visualLabel": "Animated diagram: a business connected to AI, automation, integrations, web and mobile systems"
+    },
+    "capabilities": {
+      "eyebrow": "What I build",
+      "title": "Five ways technology can move your business forward.",
+      "intro": "Most projects start as one of these — and often end up combining two.",
+      "cta": "See how each one works",
+      "items": [
+        {
+          "id": "ai",
+          "name": "AI solutions",
+          "text": "Assistants that know your documents, products and processes — and do useful work with them."
+        },
+        {
+          "id": "automation",
+          "name": "Automation & integrations",
+          "text": "The copying, checking and chasing between your tools, handled without a person."
+        },
+        {
+          "id": "web",
+          "name": "Websites & e-commerce",
+          "text": "Sites and stores that make the offer clear and the next step easy."
+        },
+        {
+          "id": "webapp",
+          "name": "Web applications",
+          "text": "Dashboards, portals and booking or inventory systems shaped around your workflow."
+        },
+        {
+          "id": "mobile",
+          "name": "Mobile applications",
+          "text": "iOS and Android apps connected to the systems your business already runs on."
+        }
+      ]
+    },
+    "problems": {
+      "eyebrow": "Sound familiar?",
+      "title": "Most businesses don't need more software. They need the right software.",
+      "items": [
+        "Too much of the work is still manual.",
+        "The tools don't talk to each other.",
+        "We want AI, but don't know where it helps.",
+        "Generic software doesn't fit how we work."
+      ],
+      "answer": "I start with how your business runs today, then build the smallest thing that makes a real difference — and connect it to what you already use.",
+      "cta": "Where I can help"
+    },
+    "automation": {
+      "eyebrow": "Automation, in one picture",
+      "title": "The work that shouldn't need a person.",
+      "text": "A lead arrives. Today someone reads it, copies the details, updates the CRM, writes a reply and remembers to follow up. Automated, that whole chain runs itself — and your team steps in only where judgment matters.",
+      "beforeLabel": "Today",
+      "afterLabel": "Automated",
+      "before": [
+        "Someone reads the message",
+        "Details copied by hand",
+        "CRM updated manually",
+        "Follow-up, if remembered"
+      ],
+      "after": [
+        "Request understood by AI",
+        "CRM updated automatically",
+        "Reply drafted and sent",
+        "Right person notified"
+      ],
+      "cta": "See the full before and after"
+    },
+    "work": {
+      "eyebrow": "Selected work",
+      "title": "Real products, shipped.",
+      "text": "Native mobile apps, a real-time web platform, an automation service and a multi-user internal system.",
+      "cta": "See all work"
+    },
+    "process": {
+      "eyebrow": "How it works",
+      "title": "A clear path from problem to working software.",
+      "steps": [
+        {
+          "title": "Understand",
+          "text": "We start with the business problem and how things run today — not with technology."
+        },
+        {
+          "title": "Design & build",
+          "text": "Scope agreed up front, then production-quality engineering with working versions along the way."
+        },
+        {
+          "title": "Integrate & improve",
+          "text": "Connected to the tools you already use, then refined based on real usage."
+        }
+      ],
+      "cta": "See the full process"
+    },
+    "why": {
+      "eyebrow": "Why work with me",
+      "title": "The person who understands the problem is the person who builds the solution.",
+      "items": [
+        {
+          "title": "Business first",
+          "text": "The problem and the people affected by it come before any technology choice."
+        },
+        {
+          "title": "End to end",
+          "text": "Strategy, design, engineering, integrations and launch — without hand-offs between vendors."
+        },
+        {
+          "title": "AI where it pays",
+          "text": "AI built into the product your team uses daily, not a disconnected experiment."
+        },
+        {
+          "title": "Direct communication",
+          "text": "No account managers. You talk to the person designing and writing the code."
+        }
+      ]
+    },
+    "tech": {
+      "eyebrow": "Under the hood",
+      "title": "Proven technology, chosen per project.",
+      "items": [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Flutter",
+        "Swift",
+        "Java",
+        "PostgreSQL",
+        "Supabase",
+        "Firebase",
+        "MongoDB",
+        "Shopify",
+        "LLM APIs",
+        "n8n",
+        "Twilio",
+        "REST APIs",
+        "WebSockets",
+        "Vercel",
+        "Docker"
+      ]
+    }
+  },
+  "work": {
+    "hero": {
+      "eyebrow": "Selected work",
+      "title": "Real products, explained as problems and solutions.",
+      "lede": "No invented clients, no invented numbers. These are projects I designed and built, what each one had to solve, and what it does today.",
+      "note": "Screenshots are from the real applications."
+    },
+    "labels": {
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "experience": "Experience",
+      "technology": "Technology",
+      "result": "Result",
+      "capabilities": "Capabilities",
+      "newTab": "(opens in a new tab)",
+      "viewCode": "View the code on GitHub",
+      "more": "See the project",
+      "shots": "Screenshots, scrollable"
+    },
+    "items": [
+      {
+        "id": "car-info",
+        "name": "Car Info Lookup",
+        "kind": "Mobile · iOS & Android",
+        "year": "Native apps",
+        "challenge": "Checking a vehicle should take seconds. Garages, buyers and parking staff had to look up plate numbers through slow, awkward channels.",
+        "solution": "Two native apps — Swift for iOS, Java for Android — that take a licence plate, query an external vehicle data API and return make, model, year, colour, engine and inspection dates in one screen.",
+        "experience": "One field, one button, one clear result. The interface is in Hebrew, and the app behaves the same on both platforms.",
+        "result": "A working lookup flow on iOS and Android, suited to verification, parking and quick reference.",
+        "technology": [
+          "Swift",
+          "Java",
+          "REST API"
+        ],
+        "capabilities": [
+          "Mobile",
+          "API integration"
+        ],
+        "links": [
+          {
+            "label": "Android project",
+            "href": "https://github.com/mohamadabuahmad/Car-info-Android"
+          },
+          {
+            "label": "iOS project",
+            "href": "https://github.com/mohamadabuahmad/Car-info-iOS-"
+          }
+        ],
+        "shots": [
+          {
+            "src": "/work/car-info-splash",
+            "alt": "Car Info app opening screen with the garage name and logo",
+            "device": "phone"
+          },
+          {
+            "src": "/work/car-info-search",
+            "alt": "Car Info search screen with a plate number field and a search button",
+            "device": "phone"
+          },
+          {
+            "src": "/work/car-info-result",
+            "alt": "Car Info result screen listing model, manufacturer, year, colour, engine number and inspection dates",
+            "device": "phone"
+          }
+        ]
+      },
+      {
+        "id": "social-platform",
+        "name": "Networking — Social Platform",
+        "kind": "Web application · Full stack",
+        "year": "Real-time",
+        "challenge": "Build a complete social platform: accounts, a feed people can interact with, and messaging that arrives instantly rather than on refresh.",
+        "solution": "A full-stack web application with secure sign-up and login, password recovery, a post feed with likes and comments, follow notifications, and direct messaging over WebSockets.",
+        "experience": "Sign up, find people, post, follow and chat — with live notifications and a dark mode, on desktop and phone.",
+        "result": "Deployed on Vercel with authentication, live notifications and messaging working end to end.",
+        "technology": [
+          "React",
+          "Next.js",
+          "Node.js",
+          "MongoDB",
+          "WebSockets",
+          "JWT"
+        ],
+        "capabilities": [
+          "Web application",
+          "Real-time"
+        ],
+        "links": [
+          {
+            "label": "View the code on GitHub",
+            "href": "https://github.com/mohamadabuahmad/Social-Media-Platform"
+          }
+        ],
+        "shots": [
+          {
+            "src": "/work/social-login",
+            "alt": "Social platform login screen with email and password fields",
+            "device": "phone"
+          },
+          {
+            "src": "/work/social-register",
+            "alt": "Social platform registration form with username, name, email and password fields",
+            "device": "phone"
+          }
+        ]
+      },
+      {
+        "id": "whatsapp-automation",
+        "name": "WhatsApp Automation Bot",
+        "kind": "Automation · Integrations",
+        "year": "Runs unattended",
+        "challenge": "Useful daily updates are only useful if they actually arrive — and nobody wants to send them by hand every morning.",
+        "solution": "A Node.js service that pulls live weather data and a daily quote from external APIs, fills message templates and delivers them on schedule through the Twilio WhatsApp API.",
+        "experience": "The message simply arrives on WhatsApp every day, formatted for the conditions of that morning.",
+        "result": "Runs unattended: fetched, composed and delivered automatically, with no one in the loop.",
+        "technology": [
+          "Node.js",
+          "Twilio API",
+          "OpenWeatherMap",
+          "RapidAPI"
+        ],
+        "capabilities": [
+          "Automation",
+          "API integrations"
+        ],
+        "links": [
+          {
+            "label": "View the code on GitHub",
+            "href": "https://github.com/mohamadabuahmad/Automation_Whatsapp"
+          }
+        ],
+        "shots": []
+      },
+      {
+        "id": "go-nature",
+        "name": "Go Nature — Park Management",
+        "kind": "Internal system · Academic team project",
+        "year": "Five-person team",
+        "challenge": "Park services were handled separately for staff and visitors, with no shared system behind bookings and day-to-day operations.",
+        "solution": "A client-server Java system on a shared database, with separate interfaces for administrators and visitors and real-time communication between them.",
+        "experience": "Staff manage orders and availability from a control application; visitors book and check in through their own flow.",
+        "result": "A working multi-user system, built and delivered with a team of five.",
+        "technology": [
+          "Java",
+          "JDBC",
+          "MySQL",
+          "Client-server"
+        ],
+        "capabilities": [
+          "Internal system",
+          "Client-server"
+        ],
+        "links": [
+          {
+            "label": "View the code on GitHub",
+            "href": "https://github.com/mohamadabuahmad/Go-Nature"
+          }
+        ],
+        "shots": [
+          {
+            "src": "/work/go-nature-roles",
+            "alt": "Go Nature start screen asking whether the user is a worker or an inviter",
+            "device": "browser"
+          },
+          {
+            "src": "/work/go-nature-server",
+            "alt": "Go Nature server control window showing connected clients and a live console log",
+            "device": "browser"
+          }
+        ]
+      }
+    ]
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About",
+      "title": "I build the software, AI and automation a business actually needs.",
+      "lede": "I'm Mohamad Abu Ahmad, a software engineer. I work directly with business owners: understanding how the work runs today, designing the right solution, building it properly and staying with it after launch.",
+      "photoAlt": "Mohamad Abu Ahmad"
+    },
+    "principles": {
+      "eyebrow": "How I think",
+      "title": "Four things that shape every project.",
+      "items": [
+        {
+          "title": "Start with the problem",
+          "text": "Technology is the last decision, not the first. What's slow, manual or unclear today decides what gets built."
+        },
+        {
+          "title": "Build the smallest useful thing",
+          "text": "One workflow, proven in real use, beats a year-long plan that never ships."
+        },
+        {
+          "title": "Connect, don't replace",
+          "text": "Most businesses already run on tools that work. The value is usually in joining them up."
+        },
+        {
+          "title": "Own the result",
+          "text": "Design, engineering, integration and launch are one job, and I stay responsible for all of it."
+        }
+      ]
+    },
+    "timeline": {
+      "eyebrow": "Background",
+      "title": "Experience and education.",
+      "items": [
+        {
+          "tag": "Experience",
+          "role": "Full Stack Developer",
+          "org": "R.H Company",
+          "period": "2020 — 2023",
+          "text": "Back-end architecture with Node.js and Express, MySQL and MongoDB databases, integration work with front-end teams in React, and deployment with Docker."
+        },
+        {
+          "tag": "Education",
+          "role": "B.Sc. in Software Engineering",
+          "org": "ORT Braude College",
+          "period": "2021 — 2026",
+          "text": "Software engineering principles, algorithms, system design and team-built software projects."
+        },
+        {
+          "tag": "Education",
+          "role": "Diploma in Practical Software Engineering",
+          "org": "ORT Braude",
+          "period": "2018 — 2020",
+          "text": "Practical software development foundations and hands-on engineering work."
+        }
+      ]
+    },
+    "capabilities": {
+      "eyebrow": "What I work with",
+      "title": "Technology, grouped by what it's for.",
+      "groups": [
+        {
+          "label": "AI & automation",
+          "items": [
+            "LLM APIs",
+            "n8n",
+            "Twilio / WhatsApp API"
+          ]
+        },
+        {
+          "label": "Web",
+          "items": [
+            "React",
+            "Next.js",
+            "Node.js",
+            "Express"
+          ]
+        },
+        {
+          "label": "Mobile",
+          "items": [
+            "Flutter",
+            "Swift (iOS)",
+            "Java (Android)"
+          ]
+        },
+        {
+          "label": "Data & backend",
+          "items": [
+            "PostgreSQL",
+            "Supabase",
+            "Firebase",
+            "MongoDB",
+            "MySQL"
+          ]
+        },
+        {
+          "label": "Commerce & integration",
+          "items": [
+            "Shopify",
+            "REST APIs",
+            "Webhooks",
+            "WebSockets"
+          ]
+        },
+        {
+          "label": "Deployment",
+          "items": [
+            "Vercel",
+            "Docker"
+          ]
+        }
+      ]
+    },
+    "languages": {
+      "eyebrow": "Working languages",
+      "title": "Projects in English, Arabic and Hebrew.",
+      "text": "This site is published in all three, and the products follow the same standard — including right-to-left interfaces built as a first-class experience, not a translation layer.",
+      "cta": "See the work"
+    },
+    "cv": "Download my CV"
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Start here",
+      "title": "Tell me what you want to solve.",
+      "lede": "You don't need a specification or a technical brief. Describe the problem in your own words and I'll come back with the simplest way to solve it."
+    },
+    "next": {
+      "title": "What happens next",
+      "items": [
+        "I read every message personally and reply by email.",
+        "If it's a fit, we set up a short call about the problem.",
+        "You get a clear recommendation and an estimate — with no obligation."
+      ]
+    },
+    "direct": {
+      "title": "Prefer to reach out directly?",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "formTitle": "Project details",
+    "faq": {
+      "title": "Before you write",
+      "items": [
+        {
+          "q": "Not sure what you need?",
+          "a": "That's the most common starting point. Describe what's slowing you down; working out the right solution is part of the job."
+        },
+        {
+          "q": "Already have a team or a product?",
+          "a": "Fine. I can take a defined part of a project, or add AI and integrations to something that already exists."
+        },
+        {
+          "q": "How fast do you reply?",
+          "a": "By email, personally. If the project isn't a fit I'll say so instead of leaving you waiting."
+        }
+      ]
+    }
+  },
+  "notfound": {
+    "code": "404",
+    "title": "This page doesn't exist.",
+    "text": "The link may be old, or the address may have a typo. Here's where to go instead.",
+    "links": {
+      "home": "Go to the homepage",
+      "services": "See the services",
+      "work": "See the work",
+      "contact": "Start a project"
+    }
+  },
+  "form": {
+    "name": "Name",
+    "company": "Business / company",
+    "email": "Email",
+    "phone": "Phone",
+    "optional": "optional",
+    "needsLegend": "What do you need help with?",
+    "needs": {
+      "ai": "AI Solution",
+      "automation": "Automation / Integration",
+      "web": "Website / E-Commerce",
+      "webapp": "Web Application",
+      "mobile": "Mobile Application",
+      "unsure": "Not Sure Yet"
+    },
+    "budgetLabel": "Budget range",
+    "budgetNone": "Prefer not to say",
+    "budgets": {
+      "unsure": "Not sure yet",
+      "lt2k": "Under $2,000",
+      "2k-5k": "$2,000 – $5,000",
+      "5k-15k": "$5,000 – $15,000",
+      "15k+": "$15,000+"
+    },
+    "messageLabel": "Tell me what you're trying to solve",
+    "messageHint": "What happens today, what's frustrating about it, and what \"better\" would look like.",
+    "submit": "Discuss My Project",
+    "sending": "Sending…",
+    "fine": "Your details are only used to reply to your message.",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email so I can reply.",
+      "phone": "That phone number looks incomplete.",
+      "needs": "Choose at least one — 'Not Sure Yet' is fine.",
+      "message": "A sentence or two about the problem is enough."
+    },
+    "summary": {
+      "one": "Please check 1 field before sending.",
+      "other": "Please check {n} fields before sending."
+    },
+    "successTitle": "Thanks — your message is in.",
+    "successTitleNamed": "Thanks, {first} — your message is in.",
+    "successBody": "I'll read it personally and reply by email{to}. If it's a fit, the next step is a short call about the problem.",
+    "successTo": " to {email}",
+    "another": "Send another message",
+    "failure": "Your message couldn't be sent. Nothing you typed was lost — please try again, or {link}.",
+    "failureLink": "email me directly",
+    "mailSubject": "Project inquiry"
+  }
+}

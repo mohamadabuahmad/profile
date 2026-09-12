@@ -1,0 +1,99 @@
+/* ============================================================
+   Contact — the page every CTA leads to.
+   ============================================================ */
+
+.ds-contact {
+  padding-block: clamp(48px, 7vw, 104px) var(--ds-section);
+}
+.ds-contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+.ds-contact__title {
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  max-width: 16ch;
+}
+.ds-contact__copy > .ds-rise:not(:first-child) {
+  margin-top: clamp(28px, 4vw, 40px);
+}
+.ds-contact__direct {
+  display: grid;
+  gap: 14px;
+  padding-top: clamp(24px, 3vw, 32px);
+  border-top: 1px solid var(--ds-line);
+}
+.ds-contact__direct > a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--ds-ink);
+}
+.ds-contact__direct > a svg {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  padding: 11px;
+  border-radius: 12px;
+  border: 1px solid var(--ds-line-strong);
+  color: var(--accent);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.ds-contact__direct > a:hover svg {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.ds-contact__direct em {
+  display: block;
+  font-family: var(--ds-mono);
+  font-size: 0.7rem;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ds-muted);
+  margin-bottom: 2px;
+}
+.ds-contact__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 6px;
+}
+.ds-contact__social .ds-link {
+  gap: 8px;
+}
+.ds-contact__faq {
+  padding-top: clamp(24px, 3vw, 32px);
+  border-top: 1px solid var(--ds-line);
+}
+.ds-contact__faq .ds-faq__item:first-of-type {
+  border-top: 1px solid var(--ds-line);
+}
+.ds-contact__faq .ds-faq__icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--accent);
+  transition: transform 0.25s var(--ds-ease);
+}
+.ds-contact__faq .ds-faq__item[open] .ds-faq__icon {
+  transform: rotate(45deg);
+}
+.ds-contact__form {
+  position: sticky;
+  top: clamp(90px, 12vh, 120px);
+  padding: clamp(22px, 3vw, 36px);
+  border: 1px solid var(--ds-line-strong);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-panel);
+  box-shadow: var(--ds-shadow);
+}
+
+@media (max-width: 1000px) {
+  .ds-contact__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ds-contact__form {
+    position: static;
+  }
+}

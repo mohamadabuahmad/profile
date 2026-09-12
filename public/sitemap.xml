@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://www.mohamaddev.com/</loc></url>
+  <url>
+    <loc>https://www.mohamaddev.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/"/>
+  </url>
+  <url>
+    <loc>https://www.mohamaddev.com/ar</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/"/>
+  </url>
+  <url>
+    <loc>https://www.mohamaddev.com/he</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/"/>
+  </url>
+
   <url>
     <loc>https://www.mohamaddev.com/services</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/services"/>
@@ -22,7 +43,70 @@
     <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/services"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/services"/>
   </url>
-  <url><loc>https://www.mohamaddev.com/apps</loc></url>
-  <url><loc>https://www.mohamaddev.com/about</loc></url>
-  <url><loc>https://www.mohamaddev.com/contact</loc></url>
+
+  <url>
+    <loc>https://www.mohamaddev.com/work</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/work"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/work"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/work"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/work"/>
+  </url>
+  <url>
+    <loc>https://www.mohamaddev.com/ar/work</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/work"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/work"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/work"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/work"/>
+  </url>
+  <url>
+    <loc>https://www.mohamaddev.com/he/work</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/work"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/work"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/work"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/work"/>
+  </url>
+
+  <url>
+    <loc>https://www.mohamaddev.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/about"/>
+  </url>
+  <url>
+    <loc>https://www.mohamaddev.com/ar/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/about"/>
+  </url>
+  <url>
+    <loc>https://www.mohamaddev.com/he/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/about"/>
+  </url>
+
+  <url>
+    <loc>https://www.mohamaddev.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/contact"/>
+  </url>
+  <url>
+    <loc>https://www.mohamaddev.com/ar/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/contact"/>
+  </url>
+  <url>
+    <loc>https://www.mohamaddev.com/he/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mohamaddev.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.mohamaddev.com/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.mohamaddev.com/he/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mohamaddev.com/contact"/>
+  </url>
 </urlset>

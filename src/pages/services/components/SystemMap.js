@@ -30,15 +30,15 @@ const SystemMap = () => {
   const { label, center, nodes } = t.map;
 
   return (
-    <figure className="svc-map" aria-label={label}>
-      <svg className="svc-map__lines" viewBox={`0 0 ${W} ${H}`} aria-hidden="true" focusable="false">
-        <circle className="svc-map__orbit" cx={CX} cy={CY} r="150" />
+    <figure className="ds-map" aria-label={label}>
+      <svg className="ds-map__lines" viewBox={`0 0 ${W} ${H}`} aria-hidden="true" focusable="false">
+        <circle className="ds-map__orbit" cx={CX} cy={CY} r="150" />
         {NODES.map((n) => (
-          <path key={n.id} className="svc-map__line" d={pathTo(n)} />
+          <path key={n.id} className="ds-map__line" d={pathTo(n)} />
         ))}
         {!reduced &&
           NODES.map((n, i) => (
-            <circle key={`p-${n.id}`} className="svc-map__pulse" r="3.5">
+            <circle key={`p-${n.id}`} className="ds-map__pulse" r="3.5">
               <animateMotion
                 dur="3.6s"
                 begin={`${i * 0.6}s`}
@@ -52,21 +52,21 @@ const SystemMap = () => {
           ))}
       </svg>
 
-      <div className="svc-map__center" style={{ left: '50%', top: '50%' }}>
-        <span className="svc-map__mark" aria-hidden="true">M</span>
+      <div className="ds-map__center" style={{ left: '50%', top: '50%' }}>
+        <span className="ds-map__mark" aria-hidden="true">M</span>
         <strong>{center.title}</strong>
-        <span className="svc-map__sub">{center.sub}</span>
+        <span className="ds-map__sub">{center.sub}</span>
       </div>
 
-      <ul className="svc-map__nodes">
+      <ul className="ds-map__nodes">
         {NODES.map((n, i) => (
           <li
             key={n.id}
-            className="svc-map__node"
+            className="ds-map__node"
             style={{ left: `${(n.x / W) * 100}%`, top: `${(n.y / H) * 100}%`, '--d': i }}
           >
             <strong>{nodes[n.id].title}</strong>
-            <span className="svc-map__sub">{nodes[n.id].sub}</span>
+            <span className="ds-map__sub">{nodes[n.id].sub}</span>
           </li>
         ))}
       </ul>

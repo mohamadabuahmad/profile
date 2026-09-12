@@ -26,14 +26,14 @@ const StickyCta = ({ heroId, formId, onRequest }) => {
   const visible = heroGone && !formReached;
 
   return (
-    <div className={`svc-sticky ${visible ? 'is-visible' : ''}`} aria-hidden={!visible}>
+    <div className={`ds-sticky ${visible ? 'is-visible' : ''}`} aria-hidden={!visible}>
       <a
         href={`#${formId}`}
-        className="svc-btn svc-btn--primary svc-btn--block"
+        className="ds-btn ds-btn--primary ds-btn--block"
         tabIndex={visible ? 0 : -1}
         onClick={(e) => onRequest(e, { source: 'sticky' })}
       >
-        {t.sticky} <FiArrowRight className="svc-arrow" aria-hidden="true" />
+        {t.sticky} <FiArrowRight className="ds-arrow" aria-hidden="true" />
       </a>
     </div>
   );

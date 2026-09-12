@@ -11,3 +11,7 @@ npm-debug.log*
 
 # local backups
 *.bak
+
+# local env overrides (never commit)
+.env.local
+.env.*.local

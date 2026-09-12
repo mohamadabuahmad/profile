@@ -6,7 +6,6 @@
     "ogImageAlt": "Mohamad Dev — AI and digital solutions built around your business",
     "ogLocale": "en_US"
   },
-  "switcher": { "label": "Language" },
   "hero": {
     "eyebrow": "Services · AI, automation & custom software",
     "title": "AI and digital solutions, built around your business.",
@@ -21,14 +20,35 @@
   },
   "map": {
     "label": "Diagram: your business connected to AI, automation, integrations, websites, web platforms and mobile apps",
-    "center": { "title": "Your business", "sub": "workflows · data · customers" },
+    "center": {
+      "title": "Your business",
+      "sub": "workflows · data · customers"
+    },
     "nodes": {
-      "ai": { "title": "AI assistant", "sub": "answers, drafts, sorts" },
-      "automation": { "title": "Automation", "sub": "routine work, handled" },
-      "integrations": { "title": "Integrations", "sub": "CRM · Shopify · APIs" },
-      "web": { "title": "Website & store", "sub": "trust, sales, bookings" },
-      "webapp": { "title": "Web platform", "sub": "dashboards & portals" },
-      "mobile": { "title": "Mobile app", "sub": "iOS & Android" }
+      "ai": {
+        "title": "AI assistant",
+        "sub": "answers, drafts, sorts"
+      },
+      "automation": {
+        "title": "Automation",
+        "sub": "routine work, handled"
+      },
+      "integrations": {
+        "title": "Integrations",
+        "sub": "CRM · Shopify · APIs"
+      },
+      "web": {
+        "title": "Website & store",
+        "sub": "trust, sales, bookings"
+      },
+      "webapp": {
+        "title": "Web platform",
+        "sub": "dashboards & portals"
+      },
+      "mobile": {
+        "title": "Mobile app",
+        "sub": "iOS & Android"
+      }
     }
   },
   "problems": {
@@ -36,14 +56,46 @@
     "title": "Your business shouldn't have to work around its software.",
     "intro": "Most projects I take on start with a sentence like one of these.",
     "items": [
-      { "quote": "Too much of our work is still manual.", "fix": "Automate the repetitive steps", "target": "automation" },
-      { "quote": "Our tools don't talk to each other.", "fix": "Connect them so data moves on its own", "target": "automation" },
-      { "quote": "People repeat the same tasks every day.", "fix": "Enter it once, sync it everywhere", "target": "automation" },
-      { "quote": "We have data, but we can't really use it.", "fix": "Turn it into live dashboards and reports", "target": "webapp" },
-      { "quote": "We want AI, but don't know where to start.", "fix": "Find the work AI can genuinely take on", "target": "ai" },
-      { "quote": "Our website exists, but it doesn't bring in business.", "fix": "Rebuild it around the customer's next step", "target": "web" },
-      { "quote": "Generic software doesn't match how we work.", "fix": "Build a tool around your workflow", "target": "webapp" },
-      { "quote": "We have a product idea and need it built properly.", "fix": "Turn the idea into a working product", "target": "mobile" }
+      {
+        "quote": "Too much of our work is still manual.",
+        "fix": "Automate the repetitive steps",
+        "target": "automation"
+      },
+      {
+        "quote": "Our tools don't talk to each other.",
+        "fix": "Connect them so data moves on its own",
+        "target": "automation"
+      },
+      {
+        "quote": "People repeat the same tasks every day.",
+        "fix": "Enter it once, sync it everywhere",
+        "target": "automation"
+      },
+      {
+        "quote": "We have data, but we can't really use it.",
+        "fix": "Turn it into live dashboards and reports",
+        "target": "webapp"
+      },
+      {
+        "quote": "We want AI, but don't know where to start.",
+        "fix": "Find the work AI can genuinely take on",
+        "target": "ai"
+      },
+      {
+        "quote": "Our website exists, but it doesn't bring in business.",
+        "fix": "Rebuild it around the customer's next step",
+        "target": "web"
+      },
+      {
+        "quote": "Generic software doesn't match how we work.",
+        "fix": "Build a tool around your workflow",
+        "target": "webapp"
+      },
+      {
+        "quote": "We have a product idea and need it built properly.",
+        "fix": "Turn the idea into a working product",
+        "target": "mobile"
+      }
     ],
     "answerTitle": "That's where I come in.",
     "answer": "I start by understanding how your business runs today. Then I design and build the smallest piece of technology that makes a real difference — and connect it to what you already use."
@@ -172,25 +224,61 @@
       "caption": "Example: an assistant that answers from your own documents"
     },
     "automation": {
-      "sources": ["Shopify order", "Email", "WhatsApp"],
+      "sources": [
+        "Shopify order",
+        "Email",
+        "WhatsApp"
+      ],
       "hubTitle": "Automation + AI",
-      "hubVerbs": ["reads", "decides", "acts"],
-      "actions": ["CRM updated", "Calendar booked", "Team notified"],
+      "hubVerbs": [
+        "reads",
+        "decides",
+        "acts"
+      ],
+      "actions": [
+        "CRM updated",
+        "Calendar booked",
+        "Team notified"
+      ],
       "caption": "Example: tools connected through one automation layer"
     },
     "web": {
       "url": "yourbusiness.com",
       "button": "Book a visit",
-      "legend": ["Clear offer", "Proof", "One obvious next step"],
+      "legend": [
+        "Clear offer",
+        "Proof",
+        "One obvious next step"
+      ],
       "caption": "What a converting page gets right: a clear offer, proof, one next step"
     },
     "webapp": {
-      "tiles": ["Orders", "Bookings", "Low stock"],
+      "tiles": [
+        "Orders",
+        "Bookings",
+        "Low stock"
+      ],
       "rows": [
-        { "name": "Order", "status": "New", "tone": "new" },
-        { "name": "Booking", "status": "In progress", "tone": "progress" },
-        { "name": "Delivery", "status": "Done", "tone": "done" },
-        { "name": "Invoice", "status": "Done", "tone": "done" }
+        {
+          "name": "Order",
+          "status": "New",
+          "tone": "new"
+        },
+        {
+          "name": "Booking",
+          "status": "In progress",
+          "tone": "progress"
+        },
+        {
+          "name": "Delivery",
+          "status": "Done",
+          "tone": "done"
+        },
+        {
+          "name": "Invoice",
+          "status": "Done",
+          "tone": "done"
+        }
       ],
       "caption": "Example: one dashboard for the work that lives in spreadsheets today"
     },
@@ -198,9 +286,21 @@
       "toast": "Reminder: your visit is tomorrow at 11:00",
       "title": "My bookings",
       "cards": [
-        { "day": "Tue", "time": "09:30", "label": "Consultation" },
-        { "day": "Wed", "time": "11:00", "label": "Follow-up" },
-        { "day": "Fri", "time": "14:15", "label": "Check-in" }
+        {
+          "day": "Tue",
+          "time": "09:30",
+          "label": "Consultation"
+        },
+        {
+          "day": "Wed",
+          "time": "11:00",
+          "label": "Follow-up"
+        },
+        {
+          "day": "Fri",
+          "time": "14:15",
+          "label": "Check-in"
+        }
       ],
       "button": "Book again",
       "caption": "Example: a booking app connected to the business calendar"
@@ -216,7 +316,11 @@
     "afterTag": "Automated",
     "afterTitle": "Handled by the system",
     "wait": "waits for someone",
-    "who": { "auto": "Automatic", "ai": "AI", "team": "Your team" },
+    "who": {
+      "auto": "Automatic",
+      "ai": "AI",
+      "team": "Your team"
+    },
     "summary": "Your team steps in where judgment is needed — not to copy data between tools.",
     "note": "Illustrative examples — a real workflow is designed around your tools and rules.",
     "scenarios": [
@@ -233,13 +337,34 @@
           "Follow-up happens — if someone remembers"
         ],
         "after": [
-          { "text": "The lead arrives on any channel", "who": "auto" },
-          { "text": "AI understands the request", "who": "ai" },
-          { "text": "The CRM updates automatically", "who": "auto" },
-          { "text": "The lead is classified by priority", "who": "ai" },
-          { "text": "A tailored reply is drafted", "who": "ai" },
-          { "text": "A follow-up task is created", "who": "auto" },
-          { "text": "The right person is notified", "who": "team" }
+          {
+            "text": "The lead arrives on any channel",
+            "who": "auto"
+          },
+          {
+            "text": "AI understands the request",
+            "who": "ai"
+          },
+          {
+            "text": "The CRM updates automatically",
+            "who": "auto"
+          },
+          {
+            "text": "The lead is classified by priority",
+            "who": "ai"
+          },
+          {
+            "text": "A tailored reply is drafted",
+            "who": "ai"
+          },
+          {
+            "text": "A follow-up task is created",
+            "who": "auto"
+          },
+          {
+            "text": "The right person is notified",
+            "who": "team"
+          }
         ]
       },
       {
@@ -254,12 +379,30 @@
           "Accounting is updated later, in a batch"
         ],
         "after": [
-          { "text": "The order comes into the store", "who": "auto" },
-          { "text": "Stock is checked and reserved", "who": "auto" },
-          { "text": "The warehouse gets a fulfilment request", "who": "auto" },
-          { "text": "An invoice is created in accounting", "who": "auto" },
-          { "text": "The customer gets tracking updates", "who": "auto" },
-          { "text": "The team is alerted when stock runs low", "who": "team" }
+          {
+            "text": "The order comes into the store",
+            "who": "auto"
+          },
+          {
+            "text": "Stock is checked and reserved",
+            "who": "auto"
+          },
+          {
+            "text": "The warehouse gets a fulfilment request",
+            "who": "auto"
+          },
+          {
+            "text": "An invoice is created in accounting",
+            "who": "auto"
+          },
+          {
+            "text": "The customer gets tracking updates",
+            "who": "auto"
+          },
+          {
+            "text": "The team is alerted when stock runs low",
+            "who": "team"
+          }
         ]
       },
       {
@@ -274,12 +417,30 @@
           "No-shows go unnoticed"
         ],
         "after": [
-          { "text": "The customer picks a time online", "who": "auto" },
-          { "text": "The calendar is checked in real time", "who": "auto" },
-          { "text": "The booking is confirmed instantly", "who": "auto" },
-          { "text": "Details are saved to your system", "who": "auto" },
-          { "text": "Reminders go out before the visit", "who": "auto" },
-          { "text": "Staff see the day's schedule", "who": "team" }
+          {
+            "text": "The customer picks a time online",
+            "who": "auto"
+          },
+          {
+            "text": "The calendar is checked in real time",
+            "who": "auto"
+          },
+          {
+            "text": "The booking is confirmed instantly",
+            "who": "auto"
+          },
+          {
+            "text": "Details are saved to your system",
+            "who": "auto"
+          },
+          {
+            "text": "Reminders go out before the visit",
+            "who": "auto"
+          },
+          {
+            "text": "Staff see the day's schedule",
+            "who": "team"
+          }
         ]
       }
     ]
@@ -288,12 +449,30 @@
     "eyebrow": "Why it matters",
     "title": "Outcomes, not features.",
     "items": [
-      { "title": "Save time", "text": "Automate the repetitive operational work that eats your team's week." },
-      { "title": "Reduce manual operations", "text": "Connect processes that currently need people to move data by hand." },
-      { "title": "Improve customer experience", "text": "Faster, clearer digital journeys — from the first visit to a finished order." },
-      { "title": "Increase conversion", "text": "Websites, stores and apps designed around getting the customer to act." },
-      { "title": "Move faster", "text": "Build custom internal tools instead of waiting for generic ones to adapt." },
-      { "title": "Make AI useful", "text": "Use AI inside the workflow, where it produces genuine value — not where it's fashionable." }
+      {
+        "title": "Save time",
+        "text": "Automate the repetitive operational work that eats your team's week."
+      },
+      {
+        "title": "Reduce manual operations",
+        "text": "Connect processes that currently need people to move data by hand."
+      },
+      {
+        "title": "Improve customer experience",
+        "text": "Faster, clearer digital journeys — from the first visit to a finished order."
+      },
+      {
+        "title": "Increase conversion",
+        "text": "Websites, stores and apps designed around getting the customer to act."
+      },
+      {
+        "title": "Move faster",
+        "text": "Build custom internal tools instead of waiting for generic ones to adapt."
+      },
+      {
+        "title": "Make AI useful",
+        "text": "Use AI inside the workflow, where it produces genuine value — not where it's fashionable."
+      }
     ]
   },
   "process": {
@@ -301,13 +480,34 @@
     "title": "A clear process, from first conversation to real use.",
     "intro": "You always know what's being built, why, and what comes next.",
     "steps": [
-      { "title": "Understand", "text": "We start with the business problem, not the technology. I learn how things work today and what 'better' looks like." },
-      { "title": "Define", "text": "Map the workflow, requirements and expected outcomes — and agree on scope before anything is built." },
-      { "title": "Design", "text": "I design the experience, the architecture and the technical solution." },
-      { "title": "Build", "text": "Production-quality engineering, with working versions you can see and react to along the way." },
-      { "title": "Integrate", "text": "The solution is connected to the tools and platforms your business already uses." },
-      { "title": "Launch", "text": "Tested, deployed and monitored — and your team is shown how to use it." },
-      { "title": "Improve", "text": "Refined based on real usage and what the business needs next." }
+      {
+        "title": "Understand",
+        "text": "We start with the business problem, not the technology. I learn how things work today and what 'better' looks like."
+      },
+      {
+        "title": "Define",
+        "text": "Map the workflow, requirements and expected outcomes — and agree on scope before anything is built."
+      },
+      {
+        "title": "Design",
+        "text": "I design the experience, the architecture and the technical solution."
+      },
+      {
+        "title": "Build",
+        "text": "Production-quality engineering, with working versions you can see and react to along the way."
+      },
+      {
+        "title": "Integrate",
+        "text": "The solution is connected to the tools and platforms your business already uses."
+      },
+      {
+        "title": "Launch",
+        "text": "Tested, deployed and monitored — and your team is shown how to use it."
+      },
+      {
+        "title": "Improve",
+        "text": "Refined based on real usage and what the business needs next."
+      }
     ],
     "assurances": [
       "Start small: prove value on one workflow first",
@@ -333,9 +533,17 @@
         "kind": "Personal project",
         "problem": "Deliver useful daily updates to people on WhatsApp without anyone sending them by hand.",
         "solution": "A Node.js service that pulls live weather data and daily quotes from external APIs, fills message templates and sends them on schedule through the Twilio WhatsApp API.",
-        "capabilities": ["Automation", "API integrations"],
+        "capabilities": [
+          "Automation",
+          "API integrations"
+        ],
         "result": "Runs unattended: messages are fetched, composed and delivered automatically every day.",
-        "links": [{ "label": "View project on GitHub", "href": "https://github.com/mohamadabuahmad/Automation_Whatsapp" }]
+        "links": [
+          {
+            "label": "View project on GitHub",
+            "href": "https://github.com/mohamadabuahmad/Automation_Whatsapp"
+          }
+        ]
       },
       {
         "id": "car-info",
@@ -343,11 +551,20 @@
         "kind": "Mobile apps · iOS & Android",
         "problem": "Get a vehicle's make, model, year and details quickly, from nothing more than a licence plate.",
         "solution": "Two native apps — Swift for iOS, Java for Android — that query vehicle data through an external API and present it in a consistent interface on both platforms.",
-        "capabilities": ["Mobile", "API integration"],
+        "capabilities": [
+          "Mobile",
+          "API integration"
+        ],
         "result": "A working lookup flow on both platforms, suited to verification, parking and quick-reference use.",
         "links": [
-          { "label": "Android project", "href": "https://github.com/mohamadabuahmad/Car-info-Android" },
-          { "label": "iOS project", "href": "https://github.com/mohamadabuahmad/Car-info-iOS-" }
+          {
+            "label": "Android project",
+            "href": "https://github.com/mohamadabuahmad/Car-info-Android"
+          },
+          {
+            "label": "iOS project",
+            "href": "https://github.com/mohamadabuahmad/Car-info-iOS-"
+          }
         ]
       },
       {
@@ -356,9 +573,17 @@
         "kind": "Web application",
         "problem": "A platform where people can post, follow each other and message in real time.",
         "solution": "A full-stack web application with secure sign-up and login, feeds, likes, comments, follow notifications and real-time direct messaging over WebSockets.",
-        "capabilities": ["Web application", "Real-time"],
+        "capabilities": [
+          "Web application",
+          "Real-time"
+        ],
         "result": "Deployed on Vercel, with authentication, live notifications and messaging working end to end.",
-        "links": [{ "label": "View project on GitHub", "href": "https://github.com/mohamadabuahmad/Social-Media-Platform" }]
+        "links": [
+          {
+            "label": "View project on GitHub",
+            "href": "https://github.com/mohamadabuahmad/Social-Media-Platform"
+          }
+        ]
       },
       {
         "id": "go-nature",
@@ -366,9 +591,17 @@
         "kind": "Academic team project",
         "problem": "Park services needed one system for administrators and visitors instead of separate manual handling.",
         "solution": "A client-server Java system on a shared database, with separate interfaces for administrators and visitors and real-time communication between them.",
-        "capabilities": ["Internal system", "Client-server"],
+        "capabilities": [
+          "Internal system",
+          "Client-server"
+        ],
         "result": "A working multi-user system, built with a five-person team.",
-        "links": [{ "label": "View project on GitHub", "href": "https://github.com/mohamadabuahmad/Go-Nature" }]
+        "links": [
+          {
+            "label": "View project on GitHub",
+            "href": "https://github.com/mohamadabuahmad/Go-Nature"
+          }
+        ]
       }
     ]
   },
@@ -377,38 +610,127 @@
     "title": "Not sure what it's called? Start here.",
     "intro": "Pick the one closest to what you need — I'll take it from there.",
     "filtersLabel": "Filter ideas by type",
-    "filters": { "all": "All", "ai": "AI", "automation": "Automation", "web": "Websites", "webapp": "Web apps", "mobile": "Mobile" },
+    "filters": {
+      "all": "All",
+      "ai": "AI",
+      "automation": "Automation",
+      "web": "Websites",
+      "webapp": "Web apps",
+      "mobile": "Mobile"
+    },
     "talk": "Talk about this",
     "interested": "I'm interested in: {name}.",
-    "shown": { "one": "1 idea shown", "other": "{n} ideas shown" },
+    "shown": {
+      "one": "1 idea shown",
+      "other": "{n} ideas shown"
+    },
     "items": [
-      { "name": "AI Assistant", "text": "Answers questions for customers or staff, using your own information.", "need": "ai" },
-      { "name": "Company Knowledge AI", "text": "Ask your documents, policies and files anything — and get sourced answers.", "need": "ai" },
-      { "name": "Recommendation Engine", "text": "Suggests the right product or content to each customer.", "need": "ai" },
-      { "name": "Document Automation", "text": "Invoices, forms and contracts read and processed automatically.", "need": "automation" },
-      { "name": "Business Automation", "text": "Repetitive steps across your tools, handled automatically.", "need": "automation" },
-      { "name": "CRM Integration", "text": "Leads, customers and follow-ups kept in sync everywhere.", "need": "automation" },
-      { "name": "E-Commerce System", "text": "An online store with the features your business actually needs.", "need": "web" },
-      { "name": "Internal Dashboard", "text": "One live view of orders, bookings, stock or performance.", "need": "webapp" },
-      { "name": "Reporting System", "text": "Reports generated from your data automatically, instead of assembled by hand.", "need": "webapp" },
-      { "name": "Booking Platform", "text": "Customers book online; your calendar and team stay in sync.", "need": "webapp" },
-      { "name": "Inventory System", "text": "Track stock, orders and suppliers without spreadsheets.", "need": "webapp" },
-      { "name": "Internal Task System", "text": "Who does what and when — in one place, not scattered across chats.", "need": "webapp" },
-      { "name": "Customer Portal", "text": "A secure place for customers to see orders, files or status.", "need": "webapp" },
-      { "name": "Marketplace", "text": "Listings, buyers and sellers, payments and reviews in one platform.", "need": "webapp" },
-      { "name": "Custom SaaS", "text": "Your idea, built as a product other businesses pay for.", "need": "webapp" },
-      { "name": "Mobile App", "text": "An iOS and Android app connected to your business systems.", "need": "mobile" }
+      {
+        "name": "AI Assistant",
+        "text": "Answers questions for customers or staff, using your own information.",
+        "need": "ai"
+      },
+      {
+        "name": "Company Knowledge AI",
+        "text": "Ask your documents, policies and files anything — and get sourced answers.",
+        "need": "ai"
+      },
+      {
+        "name": "Recommendation Engine",
+        "text": "Suggests the right product or content to each customer.",
+        "need": "ai"
+      },
+      {
+        "name": "Document Automation",
+        "text": "Invoices, forms and contracts read and processed automatically.",
+        "need": "automation"
+      },
+      {
+        "name": "Business Automation",
+        "text": "Repetitive steps across your tools, handled automatically.",
+        "need": "automation"
+      },
+      {
+        "name": "CRM Integration",
+        "text": "Leads, customers and follow-ups kept in sync everywhere.",
+        "need": "automation"
+      },
+      {
+        "name": "E-Commerce System",
+        "text": "An online store with the features your business actually needs.",
+        "need": "web"
+      },
+      {
+        "name": "Internal Dashboard",
+        "text": "One live view of orders, bookings, stock or performance.",
+        "need": "webapp"
+      },
+      {
+        "name": "Reporting System",
+        "text": "Reports generated from your data automatically, instead of assembled by hand.",
+        "need": "webapp"
+      },
+      {
+        "name": "Booking Platform",
+        "text": "Customers book online; your calendar and team stay in sync.",
+        "need": "webapp"
+      },
+      {
+        "name": "Inventory System",
+        "text": "Track stock, orders and suppliers without spreadsheets.",
+        "need": "webapp"
+      },
+      {
+        "name": "Internal Task System",
+        "text": "Who does what and when — in one place, not scattered across chats.",
+        "need": "webapp"
+      },
+      {
+        "name": "Customer Portal",
+        "text": "A secure place for customers to see orders, files or status.",
+        "need": "webapp"
+      },
+      {
+        "name": "Marketplace",
+        "text": "Listings, buyers and sellers, payments and reviews in one platform.",
+        "need": "webapp"
+      },
+      {
+        "name": "Custom SaaS",
+        "text": "Your idea, built as a product other businesses pay for.",
+        "need": "webapp"
+      },
+      {
+        "name": "Mobile App",
+        "text": "An iOS and Android app connected to your business systems.",
+        "need": "mobile"
+      }
     ]
   },
   "why": {
     "eyebrow": "Why Mohamad Dev",
     "title": "The person who understands your problem is the person who builds the solution.",
     "items": [
-      { "title": "Business-first development", "text": "I start with the problem and the people affected by it, then choose the technology — never the other way round." },
-      { "title": "AI and software together", "text": "AI isn't a disconnected experiment. It becomes part of a complete product your team actually uses." },
-      { "title": "End-to-end delivery", "text": "Strategy, UX, engineering, integrations and launch handled together, without hand-offs between vendors." },
-      { "title": "Custom, not generic", "text": "Technology adapted to your process, rather than your process bent around generic software." },
-      { "title": "Direct communication", "text": "No account managers or layers. You talk to the person designing and writing the code." }
+      {
+        "title": "Business-first development",
+        "text": "I start with the problem and the people affected by it, then choose the technology — never the other way round."
+      },
+      {
+        "title": "AI and software together",
+        "text": "AI isn't a disconnected experiment. It becomes part of a complete product your team actually uses."
+      },
+      {
+        "title": "End-to-end delivery",
+        "text": "Strategy, UX, engineering, integrations and launch handled together, without hand-offs between vendors."
+      },
+      {
+        "title": "Custom, not generic",
+        "text": "Technology adapted to your process, rather than your process bent around generic software."
+      },
+      {
+        "title": "Direct communication",
+        "text": "No account managers or layers. You talk to the person designing and writing the code."
+      }
     ]
   },
   "tech": {
@@ -416,28 +738,103 @@
     "title": "Proven, well-supported technology.",
     "intro": "Chosen per project, based on what fits. Here's what I work with.",
     "groups": [
-      { "label": "AI & automation", "items": ["LLM APIs", "n8n", "Twilio / WhatsApp API"] },
-      { "label": "Web", "items": ["React", "Next.js", "Node.js", "Express"] },
-      { "label": "Mobile", "items": ["Flutter", "Swift (iOS)", "Java (Android)"] },
-      { "label": "Data & backend", "items": ["PostgreSQL", "Supabase", "Firebase", "MongoDB", "MySQL"] },
-      { "label": "Commerce & integration", "items": ["Shopify", "REST APIs", "Webhooks", "WebSockets"] },
-      { "label": "Deployment", "items": ["Vercel", "Docker"] }
+      {
+        "label": "AI & automation",
+        "items": [
+          "LLM APIs",
+          "n8n",
+          "Twilio / WhatsApp API"
+        ]
+      },
+      {
+        "label": "Web",
+        "items": [
+          "React",
+          "Next.js",
+          "Node.js",
+          "Express"
+        ]
+      },
+      {
+        "label": "Mobile",
+        "items": [
+          "Flutter",
+          "Swift (iOS)",
+          "Java (Android)"
+        ]
+      },
+      {
+        "label": "Data & backend",
+        "items": [
+          "PostgreSQL",
+          "Supabase",
+          "Firebase",
+          "MongoDB",
+          "MySQL"
+        ]
+      },
+      {
+        "label": "Commerce & integration",
+        "items": [
+          "Shopify",
+          "REST APIs",
+          "Webhooks",
+          "WebSockets"
+        ]
+      },
+      {
+        "label": "Deployment",
+        "items": [
+          "Vercel",
+          "Docker"
+        ]
+      }
     ]
   },
   "faq": {
     "eyebrow": "Questions",
     "title": "Things people usually ask first.",
     "items": [
-      { "q": "I know my problem but not what solution I need. Can you help?", "a": "That's the most common starting point — and the best one. Describe what's slowing you down or what you want to achieve. I'll suggest the simplest solution that would work, which is sometimes smaller than you expect." },
-      { "q": "Can you integrate AI into our current systems?", "a": "Usually, yes. If your systems offer an API, an export or database access, AI can often be connected to them — for example to read incoming requests, search your documents or draft replies. I check what your current tools allow before recommending anything." },
-      { "q": "Can you work on an existing project?", "a": "Yes. Adding features, integrating new tools or modernising part of an existing website or app is often faster and cheaper than a rebuild. I review what you have first and tell you honestly which option makes sense." },
-      { "q": "Do you build both websites and applications?", "a": "Yes — websites, online stores, web applications, and iOS and Android apps. When a project needs more than one, they can share the same backend so everything stays in sync." },
-      { "q": "Can you integrate Shopify, CRM systems and APIs?", "a": "In most cases. Connecting tools through their APIs, webhooks or automation platforms is a core part of what I do. Some systems are more open than others, so I confirm what's possible early on." },
-      { "q": "How much does a project cost?", "a": "It depends on scope, so I don't publish fixed prices. After a short conversation about what you need, you get a clear estimate before any work starts. Starting with a smaller first phase is often a good way to prove the value." },
-      { "q": "How long does development take?", "a": "Focused work — a single automation or a landing page — is usually measured in weeks. Larger platforms and apps take longer. You get a realistic timeline together with the estimate." },
-      { "q": "Can you work with our internal team?", "a": "Yes. I can work alongside your developers, designers or operations team, taking on a defined part of the project or the parts that need a specific skill." },
-      { "q": "Do you provide support after launch?", "a": "Yes. Support, fixes and improvements after launch can be arranged around what your solution needs. Many projects continue with small improvements once real usage shows what matters most." },
-      { "q": "Can you build multilingual products?", "a": "Yes, including right-to-left languages such as Arabic and Hebrew. This page itself is available in English, Arabic and Hebrew." }
+      {
+        "q": "I know my problem but not what solution I need. Can you help?",
+        "a": "That's the most common starting point — and the best one. Describe what's slowing you down or what you want to achieve. I'll suggest the simplest solution that would work, which is sometimes smaller than you expect."
+      },
+      {
+        "q": "Can you integrate AI into our current systems?",
+        "a": "Usually, yes. If your systems offer an API, an export or database access, AI can often be connected to them — for example to read incoming requests, search your documents or draft replies. I check what your current tools allow before recommending anything."
+      },
+      {
+        "q": "Can you work on an existing project?",
+        "a": "Yes. Adding features, integrating new tools or modernising part of an existing website or app is often faster and cheaper than a rebuild. I review what you have first and tell you honestly which option makes sense."
+      },
+      {
+        "q": "Do you build both websites and applications?",
+        "a": "Yes — websites, online stores, web applications, and iOS and Android apps. When a project needs more than one, they can share the same backend so everything stays in sync."
+      },
+      {
+        "q": "Can you integrate Shopify, CRM systems and APIs?",
+        "a": "In most cases. Connecting tools through their APIs, webhooks or automation platforms is a core part of what I do. Some systems are more open than others, so I confirm what's possible early on."
+      },
+      {
+        "q": "How much does a project cost?",
+        "a": "It depends on scope, so I don't publish fixed prices. After a short conversation about what you need, you get a clear estimate before any work starts. Starting with a smaller first phase is often a good way to prove the value."
+      },
+      {
+        "q": "How long does development take?",
+        "a": "Focused work — a single automation or a landing page — is usually measured in weeks. Larger platforms and apps take longer. You get a realistic timeline together with the estimate."
+      },
+      {
+        "q": "Can you work with our internal team?",
+        "a": "Yes. I can work alongside your developers, designers or operations team, taking on a defined part of the project or the parts that need a specific skill."
+      },
+      {
+        "q": "Do you provide support after launch?",
+        "a": "Yes. Support, fixes and improvements after launch can be arranged around what your solution needs. Many projects continue with small improvements once real usage shows what matters most."
+      },
+      {
+        "q": "Can you build multilingual products?",
+        "a": "Yes, including right-to-left languages such as Arabic and Hebrew. This page itself is available in English, Arabic and Hebrew."
+      }
     ]
   },
   "closing": {
@@ -452,52 +849,6 @@
     ],
     "directTitle": "Prefer to reach out directly?",
     "formTitle": "Tell me what you want to solve"
-  },
-  "form": {
-    "name": "Name",
-    "company": "Business / company",
-    "email": "Email",
-    "phone": "Phone",
-    "optional": "optional",
-    "needsLegend": "What do you need help with?",
-    "needs": {
-      "ai": "AI Solution",
-      "automation": "Automation / Integration",
-      "web": "Website / E-Commerce",
-      "webapp": "Web Application",
-      "mobile": "Mobile Application",
-      "unsure": "Not Sure Yet"
-    },
-    "budgetLabel": "Budget range",
-    "budgetNone": "Prefer not to say",
-    "budgets": {
-      "unsure": "Not sure yet",
-      "lt2k": "Under $2,000",
-      "2k-5k": "$2,000 – $5,000",
-      "5k-15k": "$5,000 – $15,000",
-      "15k+": "$15,000+"
-    },
-    "messageLabel": "Tell me what you're trying to solve",
-    "messageHint": "What happens today, what's frustrating about it, and what \"better\" would look like.",
-    "submit": "Discuss My Project",
-    "sending": "Sending…",
-    "fine": "Your details are only used to reply to your message.",
-    "errors": {
-      "name": "Please enter your name.",
-      "email": "Please enter a valid email so I can reply.",
-      "phone": "That phone number looks incomplete.",
-      "needs": "Choose at least one — 'Not Sure Yet' is fine.",
-      "message": "A sentence or two about the problem is enough."
-    },
-    "summary": { "one": "Please check 1 field before sending.", "other": "Please check {n} fields before sending." },
-    "successTitle": "Thanks — your message is in.",
-    "successTitleNamed": "Thanks, {first} — your message is in.",
-    "successBody": "I'll read it personally and reply by email{to}. If it's a fit, the next step is a short call about the problem.",
-    "successTo": " to {email}",
-    "another": "Send another message",
-    "failure": "Your message couldn't be sent. Nothing you typed was lost — please try again, or {link}.",
-    "failureLink": "email me directly",
-    "mailSubject": "Project inquiry"
   },
   "sticky": "Tell Me What You Want to Solve"
 }

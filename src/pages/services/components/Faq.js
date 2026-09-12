@@ -6,14 +6,14 @@ import { useServicesText } from '../i18n';
 const Faq = () => {
   const { t } = useServicesText();
   return (
-    <div className="svc-faq">
+    <div className="ds-faq">
       {t.faq.items.map((item) => (
-        <details key={item.q} className="svc-faq__item">
-          <summary className="svc-faq__q">
+        <details key={item.q} className="ds-faq__item">
+          <summary className="ds-faq__q">
             <h3>{item.q}</h3>
-            <FiPlus className="svc-faq__icon" aria-hidden="true" />
+            <FiPlus className="ds-faq__icon" aria-hidden="true" />
           </summary>
-          <p className="svc-faq__a">{item.a}</p>
+          <p className="ds-faq__a">{item.a}</p>
         </details>
       ))}
     </div>

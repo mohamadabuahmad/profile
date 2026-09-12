@@ -1,0 +1,169 @@
+/* ============================================================
+   Work — case studies with real product screenshots.
+   ============================================================ */
+
+.ds-case-study {
+  scroll-margin-top: 90px;
+}
+.ds-case-study--alt .ds-split__media {
+  order: 2;
+}
+.ds-case-study__name {
+  margin: 10px 0 16px;
+  font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+}
+.ds-case-study__body {
+  display: grid;
+  gap: 22px;
+  margin: clamp(28px, 4vw, 40px) 0 0;
+}
+.ds-case-study__body dt {
+  margin-bottom: 8px;
+  font-family: var(--ds-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.ds-case-study__body dd {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ds-body);
+  max-width: 56ch;
+}
+.ds-case-study__foot {
+  display: grid;
+  gap: 22px;
+  margin-top: clamp(28px, 4vw, 40px);
+  padding-top: 26px;
+  border-top: 1px solid var(--ds-line);
+}
+.ds-case-study__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+
+/* Screenshot arrangements */
+.ds-shots {
+  display: grid;
+  gap: 14px;
+  padding: clamp(20px, 3vw, 36px);
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius-lg);
+  background-color: var(--ds-stage);
+  background-image: linear-gradient(var(--ds-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ds-grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.ds-shots--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 10px;
+  padding: clamp(16px, 2vw, 24px);
+}
+.ds-shots--3 .ds-device--phone:nth-child(2) {
+  transform: translateY(-18px);
+}
+.ds-shots--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-items: center;
+}
+/* Browser screenshots are wide: stack them instead of halving their width. */
+.ds-shots--browser {
+  grid-template-columns: minmax(0, 1fr);
+}
+.ds-shots--2 .ds-device--phone:nth-child(2) {
+  transform: translateY(16px);
+}
+.ds-shots .ds-device--phone {
+  max-width: 100%;
+  transition: transform 0.5s var(--ds-ease);
+}
+.ds-shots--none {
+  place-items: center;
+  min-height: 320px;
+}
+
+/* Automation project: a small diagram instead of a screenshot */
+.ds-auto-graphic {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  max-width: 340px;
+}
+.ds-auto-graphic__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--ds-line-strong);
+  border-radius: 14px;
+  background: var(--ds-panel);
+  font-size: 0.92rem;
+  color: var(--ds-ink);
+}
+.ds-auto-graphic__row svg {
+  flex: none;
+  color: var(--accent);
+}
+.ds-auto-graphic__bubble {
+  display: grid;
+  gap: 7px;
+  margin-inline-start: auto;
+  width: 70%;
+  padding: 16px;
+  border-radius: 16px;
+  border-end-end-radius: 4px;
+  background: var(--ds-btn);
+}
+.ds-auto-graphic__bubble i {
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.85);
+}
+.ds-auto-graphic__bubble i:nth-child(2) { width: 80%; }
+.ds-auto-graphic__bubble i:nth-child(3) { width: 55%; }
+
+@media (max-width: 1000px) {
+  .ds-case-study--alt .ds-split__media {
+    order: 0;
+  }
+  .ds-shots {
+    max-width: 560px;
+    margin-inline: auto;
+  }
+}
+
+/* On phones a row of shrunken screenshots is unreadable, so the shots become a
+   swipeable row at a legible size instead. */
+@media (max-width: 700px) {
+  .ds-shots[data-scroller]:focus-visible {
+    outline: 2px solid var(--ds-focus);
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
+  .ds-shots[data-scroller] {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 16px;
+  }
+  .ds-shots[data-scroller]::-webkit-scrollbar {
+    display: none;
+  }
+  .ds-shots[data-scroller] > * {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+  .ds-shots[data-scroller] .ds-device--phone {
+    width: 186px;
+    transform: none;
+  }
+  .ds-shots[data-scroller] .ds-device--browser {
+    width: min(78vw, 330px);
+  }
+}

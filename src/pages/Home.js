@@ -1,215 +1,220 @@
 import React from 'react';
-import ReactGA from 'react-ga4';
-import { motion } from 'framer-motion';
-import { FaLinkedin, FaEnvelope, FaGithub, FaArrowRight, FaDownload } from 'react-icons/fa';
-import './Home.css';  // Import the custom CSS file for styling
+import { Link } from 'react-router-dom';
+import { FiArrowRight, FiCheck, FiUser, FiZap } from 'react-icons/fi';
+import { useSite } from '../app/SiteContext';
+import { trackEvent } from '../analytics';
+import SectionHeading from '../components/ui/SectionHeading';
+import HeroCanvas from '../components/HeroCanvas';
+import DeviceShot from '../components/DeviceShot';
+import AutomationGraphic from '../components/AutomationGraphic';
+import CtaBand from '../components/CtaBand';
+import './home.css';
 
-const Home = () => {
-  // Track CV Download
-  const handleDownloadCV = () => {
-    ReactGA.event({
-      category: "Download",
-      action: "Clicked CV Download",
-      label: "Home Page",
-    });
-  };
+// Three projects lead the homepage; the rest live on the work page.
+const FEATURED = ['car-info', 'social-platform', 'whatsapp-automation'];
 
-  const stats = [
-    { value: "3+", label: "Years Experience" },
-    { value: "10+", label: "Projects" },
-    { value: "B.Sc.", label: "Software Engineering" },
-  ];
-
-  const projects = [
-    {
-      title: "Car Info App",
-      desc: "An innovative app that allows users to find detailed information about cars by entering the car number.",
-    },
-    {
-      title: "WhatsApp Weather & Motivation Bot",
-      desc: "Daily weather alerts and motivational quotes delivered automatically via WhatsApp.",
-    },
-    {
-      title: "Networking - Social Media Platform",
-      desc: "A full-stack social app featuring posts, likes, follows, and real-time chat.",
-    },
-  ];
-
-  const skills = [
-    "Full Stack Development",
-    "Java",
-    "Python",
-    "JavaScript",
-    "SQL",
-    "Node.js",
-    "React",
-    "React Native",
-  ];
-
-  const reveal = {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
-  };
+const Home = ({ work }) => {
+  const { t, path } = useSite();
+  const h = t.home;
+  const projects = FEATURED.map((id) => work.items.find((item) => item.id === id)).filter(Boolean);
 
   return (
-    <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-glow" aria-hidden="true" />
-        <div className="hero-inner">
-          <motion.div
-            className="hero-content"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <span className="eyebrow">Software Engineer</span>
-            <h1 className="hero-title">
-              Hi, I'm <span className="gradient-text">Mohamad Abu Ahmad</span>
-            </h1>
-            <p className="hero-subtitle">Software Engineer | Full Stack Developer</p>
-
-            <div className="hero-buttons">
-              <motion.a
-                href="/apps"
-                className="btn-primary"
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                View My Apps <FaArrowRight />
-              </motion.a>
-              <motion.a
-                href="/contact"
-                className="btn-ghost"
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                Contact Me
-              </motion.a>
-              <motion.a
-                href={`${process.env.PUBLIC_URL}/CV.pdf`}
-                download
-                onClick={handleDownloadCV}
-                className="btn-ghost cv-button"
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <FaDownload /> Download My CV
-              </motion.a>
-            </div>
-
-            <div className="social-icons">
-              <a
-                href="https://www.linkedin.com/in/mohamad-abu-ahmad-817a82262?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bnb3sIT6vQ6KywyiydjEkCA%3D%3D"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin className="icon" />
-              </a>
-              <a href="mailto:mohamdadm25@gmail.com" aria-label="Email">
-                <FaEnvelope className="icon" />
-              </a>
-              <a
-                href="https://github.com/mohamadabuahmad"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <FaGithub className="icon" />
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="hero-avatar-wrap"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-          >
-            <div className="avatar-ring">
-              <img src={`${process.env.PUBLIC_URL}/profile_pic.jpg`} alt="Mohamad Abu Ahmad" className="profile-picture" />
-            </div>
-          </motion.div>
+    <>
+      {/* Hero */}
+      <section className="ds-hero-home" aria-labelledby="home-title">
+        <div className="ds-wrap ds-hero-home__copy">
+          <p className="ds-eyebrow ds-rise">{h.hero.eyebrow}</p>
+          <h1 id="home-title" className="ds-display ds-rise" style={{ '--d': 1 }}>{h.hero.title}</h1>
+          <p className="ds-lede ds-hero-home__lede ds-rise" style={{ '--d': 2 }}>{h.hero.lede}</p>
+          <div className="ds-actions ds-hero-home__actions ds-rise" style={{ '--d': 3 }}>
+            <Link
+              to={path('contact')}
+              className="ds-btn ds-btn--primary ds-btn--lg"
+              onClick={() => trackEvent('Site', 'cta_click', 'home_hero_primary')}
+            >
+              {h.hero.primary} <FiArrowRight className="ds-arrow" aria-hidden="true" />
+            </Link>
+            <Link
+              to={path('work')}
+              className="ds-btn ds-btn--ghost ds-btn--lg"
+              onClick={() => trackEvent('Site', 'cta_click', 'home_hero_secondary')}
+            >
+              {h.hero.secondary}
+            </Link>
+          </div>
         </div>
 
-        <motion.div
-          className="stat-row"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-        >
-          {stats.map((s) => (
-            <div className="stat" key={s.label}>
-              <span className="stat-value gradient-text">{s.value}</span>
-              <span className="stat-label">{s.label}</span>
-            </div>
-          ))}
-        </motion.div>
+        <div className="ds-hero-home__stage ds-rise" style={{ '--d': 4 }}>
+          <HeroCanvas label={h.hero.visualLabel} />
+          <ul className="ds-hero-home__points">
+            {h.hero.points.map((point) => (
+              <li key={point}><FiCheck aria-hidden="true" /> {point}</li>
+            ))}
+          </ul>
+        </div>
       </section>
 
-      {/* About Preview Section */}
-      <motion.section className="section about-preview" {...reveal} transition={{ duration: 0.6, delay: 0.1 }}>
-        <div className="section-wrap">
-          <span className="eyebrow">About Me</span>
-          <h2 className="section-title">A bit about my work</h2>
-          <p className="about-text">
-            I am a passionate Software Engineer and Full Stack Developer with a focus on developing robust and innovative software solutions. With a strong foundation in back-end development, I aim to enhance user experiences through intuitive and efficient system design.
+      {/* What I build */}
+      <section className="ds-section" aria-labelledby="capabilities-title">
+        <div className="ds-wrap">
+          <SectionHeading
+            id="capabilities-title"
+            eyebrow={h.capabilities.eyebrow}
+            title={h.capabilities.title}
+            intro={h.capabilities.intro}
+          />
+          <ul className="ds-caps">
+            {h.capabilities.items.map((item, i) => (
+              <li key={item.id} className="ds-cap" data-reveal style={{ '--d': i % 3 }}>
+                <Link to={`${path('services')}#solution-${item.id}`} className="ds-cap__link">
+                  <span className="ds-cap__index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="ds-cap__name">{item.name}</h3>
+                  <p className="ds-cap__text">{item.text}</p>
+                  <span className="ds-cap__more">
+                    {h.capabilities.cta} <FiArrowRight className="ds-arrow" aria-hidden="true" />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Problems → answer */}
+      <section className="ds-section ds-band" aria-labelledby="home-problems-title">
+        <div className="ds-wrap ds-problems-home">
+          <div className="ds-problems-home__list" data-reveal>
+            <p className="ds-eyebrow">{h.problems.eyebrow}</p>
+            <ul>
+              {h.problems.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="ds-problems-home__answer" data-reveal style={{ '--d': 1 }}>
+            <h2 id="home-problems-title" className="ds-h2">{h.problems.title}</h2>
+            <p className="ds-lede">{h.problems.answer}</p>
+            <Link to={path('services')} className="ds-link">
+              {h.problems.cta} <FiArrowRight className="ds-arrow" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Automation in one picture */}
+      <section className="ds-section" aria-labelledby="home-automation-title">
+        <div className="ds-wrap">
+          <SectionHeading id="home-automation-title" eyebrow={h.automation.eyebrow} title={h.automation.title} intro={h.automation.text} />
+          <div className="ds-flow" data-reveal>
+            <div className="ds-flow__lane">
+              <p className="ds-flow__label">{h.automation.beforeLabel}</p>
+              <ol>
+                {h.automation.before.map((step) => (
+                  <li key={step}><FiUser aria-hidden="true" /> {step}</li>
+                ))}
+              </ol>
+            </div>
+            <div className="ds-flow__arrow" aria-hidden="true"><FiArrowRight className="ds-arrow" /></div>
+            <div className="ds-flow__lane ds-flow__lane--after">
+              <p className="ds-flow__label ds-flow__label--on">{h.automation.afterLabel}</p>
+              <ol>
+                {h.automation.after.map((step) => (
+                  <li key={step}><FiZap aria-hidden="true" /> {step}</li>
+                ))}
+              </ol>
+            </div>
+          </div>
+          <p className="ds-flow__cta" data-reveal>
+            <Link to={`${path('services')}#automation-demo`} className="ds-link">
+              {h.automation.cta} <FiArrowRight className="ds-arrow" aria-hidden="true" />
+            </Link>
           </p>
-          <a href="/about" className="text-link">
-            Read More <FaArrowRight />
-          </a>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Featured Projects Section */}
-      <motion.section className="section featured-apps" {...reveal} transition={{ duration: 0.6, delay: 0.1 }}>
-        <div className="section-wrap">
-          <span className="eyebrow">Portfolio</span>
-          <h2 className="section-title">Featured Projects</h2>
-          <div className="apps-grid">
-            {projects.map((p) => (
-              <motion.div className="app-card" key={p.title} whileHover={{ y: -6 }}>
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
-                <a href="/apps" className="text-link">
-                  Learn More <FaArrowRight />
-                </a>
-              </motion.div>
+      {/* Selected work */}
+      <section className="ds-section ds-band" aria-labelledby="home-work-title">
+        <div className="ds-wrap">
+          <SectionHeading id="home-work-title" eyebrow={h.work.eyebrow} title={h.work.title} intro={h.work.text} />
+          <div className="ds-work-preview">
+            {projects.map((project, i) => (
+              <article key={project.id} className="ds-work-card" data-reveal style={{ '--d': i }}>
+                <Link to={`${path('work')}#${project.id}`} className="ds-work-card__link">
+                  <div className="ds-work-card__media">
+                    {project.shots[0] ? (
+                      <DeviceShot shot={project.shots[0]} />
+                    ) : (
+                      <AutomationGraphic steps={h.automation.after.slice(0, 3)} />
+                    )}
+                  </div>
+                  <p className="ds-micro">{project.kind}</p>
+                  <h3 className="ds-work-card__name">{project.name}</h3>
+                  <p className="ds-work-card__text">{project.challenge}</p>
+                  <span className="ds-link">
+                    {work.labels.more} <FiArrowRight className="ds-arrow" aria-hidden="true" />
+                  </span>
+                </Link>
+              </article>
             ))}
           </div>
+          <p className="ds-center" data-reveal>
+            <Link to={path('work')} className="ds-btn ds-btn--ghost">
+              {h.work.cta} <FiArrowRight className="ds-arrow" aria-hidden="true" />
+            </Link>
+          </p>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Skills Overview Section */}
-      <motion.section className="section skills-overview" {...reveal} transition={{ duration: 0.6, delay: 0.1 }}>
-        <div className="section-wrap">
-          <span className="eyebrow">Tech Stack</span>
-          <h2 className="section-title">My Skills</h2>
-          <div className="skills-chips">
-            {skills.map((skill) => (
-              <motion.span className="skill-chip" key={skill} whileHover={{ y: -4 }}>
-                {skill}
-              </motion.span>
+      {/* Process */}
+      <section className="ds-section" aria-labelledby="home-process-title">
+        <div className="ds-wrap">
+          <SectionHeading id="home-process-title" eyebrow={h.process.eyebrow} title={h.process.title} />
+          <ol className="ds-steps" data-reveal>
+            {h.process.steps.map((step, i) => (
+              <li key={step.title} style={{ '--d': i }}>
+                <span className="ds-steps__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </li>
             ))}
-          </div>
+          </ol>
+          <p className="ds-center" data-reveal>
+            <Link to={`${path('services')}#process`} className="ds-link">
+              {h.process.cta} <FiArrowRight className="ds-arrow" aria-hidden="true" />
+            </Link>
+          </p>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Contact CTA Section */}
-      <motion.section className="section contact-preview" {...reveal} transition={{ duration: 0.6, delay: 0.1 }}>
-        <div className="section-wrap">
-          <div className="cta-card">
-            <h2 className="section-title">Get In Touch</h2>
-            <p>If you are interested in collaborating or want to know more about my work, feel free to contact me.</p>
-            <motion.a href="/contact" className="btn-primary" whileHover={{ y: -3 }} whileTap={{ scale: 0.97 }}>
-              Contact Me <FaArrowRight />
-            </motion.a>
-          </div>
+      {/* Why */}
+      <section className="ds-section ds-band" aria-labelledby="home-why-title">
+        <div className="ds-wrap ds-why-home">
+          <SectionHeading id="home-why-title" eyebrow={h.why.eyebrow} title={h.why.title} />
+          <ul className="ds-why-home__list">
+            {h.why.items.map((item, i) => (
+              <li key={item.title} data-reveal style={{ '--d': i }}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </li>
+            ))}
+          </ul>
         </div>
-      </motion.section>
-    </div>
+      </section>
+
+      {/* Technology */}
+      <section className="ds-section ds-section--tight" aria-labelledby="home-tech-title">
+        <div className="ds-wrap">
+          <SectionHeading id="home-tech-title" eyebrow={h.tech.eyebrow} title={h.tech.title} />
+          <ul className="ds-chips ds-tech-strip" data-reveal>
+            {h.tech.items.map((item) => (
+              <li key={item} className="ds-chip" dir="ltr">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <CtaBand source="home" />
+    </>
   );
 };
 

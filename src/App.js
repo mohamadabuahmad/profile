@@ -1,66 +1,38 @@
-// import React, { createContext, useState, useContext, useEffect } from "react";
-// import AppRouter from "./router";
-// import { initGA, logPageView } from "./analytics"; // 🔹 Import Google Analytics functions
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import AppRouter from './router';
+import { initGA, logPageView } from './analytics';
 
-// // Create a context for the theme
-// const ThemeContext = createContext();
-
-// export const useTheme = () => useContext(ThemeContext);
-
-// const App = () => {
-//   const [theme, setTheme] = useState("light"); // Default theme is light
-
-//   useEffect(() => {
-//     document.body.className = theme; // Apply the theme class to the body
-//   }, [theme]);
-
-//   const toggleTheme = () => {
-//     setTheme(theme === "light" ? "dark" : "light"); // Toggle between light and dark
-//   };
-
-//   // 🔹 Initialize Google Analytics when the app loads
-//   useEffect(() => {
-//     initGA();
-//     logPageView();
-//   }, []);
-
-//   return (
-//     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-//       <AppRouter />
-//     </ThemeContext.Provider>
-//   );
-// };
-
-// export default App;
-
-import React, { createContext, useState, useContext, useEffect } from "react";
-import AppRouter from "./router";
-import { initGA, logPageView } from "./analytics"; // 🔹 Google Analytics functions
-
-// Create a context for the theme
 const ThemeContext = createContext();
 
-// Custom hook to use the theme context
 export const useTheme = () => useContext(ThemeContext);
 
-const App = () => {
-  // Set initial theme based on system preference
-  const [theme, setTheme] = useState(() => {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  });
+const STORAGE_KEY = 'mohamaddev-theme';
 
-  // Apply theme to the body element safely
+const readInitialTheme = () => {
+  try {
+    const saved = window.localStorage.getItem(STORAGE_KEY);
+    if (saved === 'light' || saved === 'dark') return saved;
+  } catch (error) {
+    // Private browsing or blocked storage: fall back to the system preference.
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+const App = () => {
+  const [theme, setTheme] = useState(readInitialTheme);
+
   useEffect(() => {
-    document.body.classList.remove("light", "dark");
+    document.body.classList.remove('light', 'dark');
     document.body.classList.add(theme);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, theme);
+    } catch (error) {
+      // Not being able to remember the choice is not worth breaking the page over.
+    }
   }, [theme]);
 
-  // Toggle between light and dark themes
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  };
+  const toggleTheme = () => setTheme((previous) => (previous === 'light' ? 'dark' : 'light'));
 
-  // Initialize Google Analytics on app load
   useEffect(() => {
     initGA();
     logPageView();
@@ -68,9 +40,7 @@ const App = () => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={`app ${theme}`}>
-        <AppRouter />
-      </div>
+      <AppRouter />
     </ThemeContext.Provider>
   );
 };

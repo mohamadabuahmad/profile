@@ -13,53 +13,53 @@ const SolutionSection = ({ solution, index, reverse, onRequest }) => {
   return (
     <article
       id={`solution-${solution.id}`}
-      className={`svc-solution ${reverse ? 'svc-solution--reverse' : ''}`}
+      className={`ds-solution ${reverse ? 'ds-solution--reverse' : ''}`}
       aria-labelledby={headingId}
     >
-      <div className="svc-solution__copy" data-reveal>
-        <p className="svc-solution__label">
-          <span className="svc-solution__index">{String(index + 1).padStart(2, '0')}</span>
+      <div className="ds-solution__copy" data-reveal>
+        <p className="ds-solution__label">
+          <span className="ds-solution__index">{String(index + 1).padStart(2, '0')}</span>
           {solution.label}
         </p>
-        <h3 id={headingId} className="svc-solution__title">{solution.title}</h3>
-        <p className="svc-solution__body">{solution.body}</p>
+        <h3 id={headingId} className="ds-solution__title">{solution.title}</h3>
+        <p className="ds-solution__body">{solution.body}</p>
 
-        <div className="svc-solution__cols">
+        <div className="ds-solution__cols">
           <div>
-            <h4 className="svc-micro">{t.solutionsIntro.problemsLabel}</h4>
-            <ul className="svc-solution__problems">
+            <h4 className="ds-micro">{t.solutionsIntro.problemsLabel}</h4>
+            <ul className="ds-solution__problems">
               {solution.problems.map((p) => (
                 <li key={p}>{p}</li>
               ))}
             </ul>
           </div>
           <div>
-            <h4 className="svc-micro">{t.solutionsIntro.examplesLabel}</h4>
-            <ul className="svc-chips">
+            <h4 className="ds-micro">{t.solutionsIntro.examplesLabel}</h4>
+            <ul className="ds-chips">
               {solution.examples.map((e) => (
-                <li key={e} className="svc-chip">{e}</li>
+                <li key={e} className="ds-chip">{e}</li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="svc-solution__actions">
+        <div className="ds-solution__actions">
           <a
             href="#start"
-            className="svc-btn svc-btn--primary"
+            className="ds-btn ds-btn--primary"
             onClick={(e) => onRequest(e, { need: solution.id, source: `service_${solution.id}` })}
           >
-            {solution.cta} <FiArrowRight className="svc-arrow" aria-hidden="true" />
+            {solution.cta} <FiArrowRight className="ds-arrow" aria-hidden="true" />
           </a>
           {solution.id === 'automation' && (
-            <a href="#automation-demo" className="svc-link">
+            <a href="#automation-demo" className="ds-link">
               {t.solutionsIntro.demoLink} <FiArrowDown aria-hidden="true" />
             </a>
           )}
         </div>
       </div>
 
-      <div className="svc-solution__visual" data-reveal>
+      <div className="ds-solution__visual" data-reveal>
         <Visual />
       </div>
     </article>

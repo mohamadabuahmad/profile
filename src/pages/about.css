@@ -1,0 +1,194 @@
+/* ============================================================
+   About — credibility, thinking and background.
+   ============================================================ */
+
+.ds-about-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+.ds-about-hero__title {
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  max-width: 20ch;
+}
+.ds-about-hero__photo {
+  margin: 0;
+  justify-self: center;
+}
+.ds-about-hero__photo img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--ds-radius-lg);
+  border: 1px solid var(--ds-line-strong);
+  box-shadow: var(--ds-shadow);
+}
+
+.ds-principles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ds-line);
+}
+.ds-principles li {
+  padding: clamp(24px, 3vw, 36px) 0;
+  border-bottom: 1px solid var(--ds-line);
+}
+.ds-principles li:nth-child(odd) {
+  padding-inline-end: clamp(24px, 4vw, 56px);
+  border-inline-end: 1px solid var(--ds-line);
+}
+.ds-principles li:nth-child(even) {
+  padding-inline-start: clamp(24px, 4vw, 56px);
+}
+.ds-principles__num {
+  font-family: var(--ds-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+.ds-principles h3 {
+  margin: 10px 0 8px;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+}
+.ds-principles p {
+  color: var(--ds-muted);
+  line-height: 1.7;
+  max-width: 46ch;
+}
+
+.ds-timeline {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ds-timeline li {
+  position: relative;
+  padding: 0 0 32px clamp(20px, 2vw, 28px);
+  padding-inline-start: clamp(20px, 2vw, 28px);
+  padding-inline-end: 0;
+  border-inline-start: 1px solid var(--ds-line);
+}
+.ds-timeline li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -5px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.ds-timeline li:last-child {
+  padding-bottom: 0;
+}
+.ds-timeline__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.ds-chip--tag {
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.ds-timeline__period {
+  font-family: var(--ds-mono);
+  font-size: 0.76rem;
+  color: var(--ds-muted);
+}
+.ds-timeline h3 {
+  margin: 0 0 4px;
+  font-size: 1.2rem;
+}
+.ds-timeline__org {
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.ds-timeline__text {
+  color: var(--ds-muted);
+  line-height: 1.7;
+  max-width: 54ch;
+}
+
+.ds-tech-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 32px;
+  margin: 0;
+}
+.ds-tech-groups dd {
+  margin: 10px 0 0;
+}
+
+.ds-languages {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+}
+.ds-languages .ds-lede {
+  max-width: 60ch;
+}
+.ds-languages__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-block: 8px;
+  font-family: var(--ds-display-font);
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--ds-ink);
+}
+.ds-languages__row span:nth-child(2) {
+  font-family: "IBM Plex Sans Arabic", var(--ds-display-font);
+}
+.ds-languages__row span:nth-child(3) {
+  font-family: "IBM Plex Sans Hebrew", var(--ds-display-font);
+}
+
+@media (max-width: 1000px) {
+  .ds-about-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ds-about-hero__photo {
+    order: -1;
+    justify-self: stretch;
+  }
+  .ds-about-hero__photo img {
+    max-width: none;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-position: center 28%;
+  }
+  .ds-tech-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .ds-principles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ds-principles li:nth-child(odd) {
+    padding-inline-end: 0;
+    border-inline-end: 0;
+  }
+  .ds-principles li:nth-child(even) {
+    padding-inline-start: 0;
+  }
+  .ds-tech-groups {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
