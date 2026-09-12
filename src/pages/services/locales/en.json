@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "AI, Automation & Custom Software for Businesses | Mohamad Dev",
+    "title": "AI, Automation & Custom Software for Businesses | MohamadDev",
     "description": "AI assistants, business automation and integrations, websites and Shopify stores, custom web apps and mobile apps — designed and built around your business problem.",
     "ogImage": "/og-services.png",
-    "ogImageAlt": "Mohamad Dev — AI and digital solutions built around your business",
+    "ogImageAlt": "MohamadDev — AI and digital solutions built around your business",
     "ogLocale": "en_US"
   },
   "hero": {
@@ -459,7 +459,7 @@
       },
       {
         "title": "Improve customer experience",
-        "text": "Faster, clearer digital journeys — from the first visit to a finished order."
+        "text": "A shorter path from first visit to finished order."
       },
       {
         "title": "Increase conversion",
@@ -708,7 +708,7 @@
     ]
   },
   "why": {
-    "eyebrow": "Why Mohamad Dev",
+    "eyebrow": "Why MohamadDev",
     "title": "The person who understands your problem is the person who builds the solution.",
     "items": [
       {

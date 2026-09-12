@@ -15,7 +15,9 @@ const readInitialTheme = () => {
   } catch (error) {
     // Private browsing or blocked storage: fall back to the system preference.
   }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  // Warm white is the brand's ground, so it is what a first-time visitor sees.
+  // The ink theme is the identity's reversed application, one toggle away.
+  return 'light';
 };
 
 const App = () => {

@@ -1,32 +1,32 @@
 {
   "meta": {
     "home": {
-      "title": "Mohamad Dev — AI, Automation & Software for Businesses",
+      "title": "MohamadDev — AI, Automation & Software for Businesses",
       "description": "I design and build AI solutions, business automation, integrations, websites, web platforms and mobile apps around real business problems.",
       "image": "/og-services.png"
     },
     "work": {
-      "title": "Work — Real Products, Shipped | Mohamad Dev",
+      "title": "Work — Real Products, Shipped | MohamadDev",
       "description": "Selected projects: native mobile apps, a real-time web platform, automation services and internal systems — explained as problem, solution and result.",
       "image": "/og-services.png"
     },
     "about": {
-      "title": "About Mohamad Abu Ahmad — Software Engineer | Mohamad Dev",
+      "title": "About Mohamad Abu Ahmad — Software Engineer | MohamadDev",
       "description": "Software engineer building AI, automation, web and mobile solutions for businesses. Full-stack experience, B.Sc. in Software Engineering, direct communication.",
       "image": "/og-services.png"
     },
     "contact": {
-      "title": "Start a Project — Contact Mohamad Dev",
+      "title": "Start a Project — Contact MohamadDev",
       "description": "Tell me the business problem you want to solve. You get a clear recommendation and an estimate before any work starts.",
       "image": "/og-services.png"
     },
     "notfound": {
-      "title": "Page Not Found | Mohamad Dev",
+      "title": "Page Not Found | MohamadDev",
       "description": "This page doesn't exist."
     }
   },
   "nav": {
-    "home": "Mohamad Dev — home",
+    "home": "MohamadDev — home",
     "primary": "Main",
     "skip": "Skip to content",
     "menu": "Open menu",
@@ -62,7 +62,8 @@
       "linkedin": "LinkedIn profile",
       "github": "GitHub profile",
       "instagram": "Instagram profile"
-    }
+    },
+    "descriptor": "Intelligent Systems"
   },
   "cta": {
     "title": "Have a business problem that technology could solve?",
@@ -82,7 +83,7 @@
         "AI, web and mobile under one roof",
         "Built in English, Arabic and Hebrew"
       ],
-      "visualLabel": "Animated diagram: a business connected to AI, automation, integrations, web and mobile systems"
+      "visualLabel": "The mark: one complete square, resolved by subtraction into an M."
     },
     "capabilities": {
       "eyebrow": "What I build",

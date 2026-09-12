@@ -26,8 +26,8 @@ const EMAIL = 'mohamdadm25@gmail.com';
 const PHONE = '+972542366982';
 const SAME_AS = ['https://www.linkedin.com/in/mohamad-abu-ahmad-817a82262/', 'https://github.com/mohamadabuahmad'];
 const FONTS = {
-  ar: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap',
-  he: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&display=swap',
+  ar: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap',
+  he: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&display=swap',
 };
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
@@ -42,7 +42,7 @@ const person = (locale) => ({
   '@type': 'Person',
   '@id': `${SITE_URL}/#mohamad`,
   name: 'Mohamad Abu Ahmad',
-  brand: { '@type': 'Brand', name: 'Mohamad Dev' },
+  brand: { '@type': 'Brand', name: 'MohamadDev' },
   jobTitle: 'Software Engineer',
   url: SITE_URL,
   email: `mailto:${EMAIL}`,
@@ -67,7 +67,7 @@ const webPage = (page, locale, t) => ({
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Mohamad Dev', item: `${SITE_URL}${LOCALES[locale].prefix}/` },
+      { '@type': 'ListItem', position: 1, name: 'MohamadDev', item: `${SITE_URL}${LOCALES[locale].prefix}/` },
       ...(page === 'home' ? [] : [{ '@type': 'ListItem', position: 2, name: t.title.split(/[—|]/)[0].trim(), item: urlFor(page, locale) }]),
     ],
   },
@@ -77,7 +77,7 @@ const website = (locale) => ({
   '@type': 'WebSite',
   '@id': `${SITE_URL}/#website`,
   url: SITE_URL,
-  name: 'Mohamad Dev',
+  name: 'MohamadDev',
   inLanguage: locale,
   publisher: { '@id': `${SITE_URL}/#mohamad` },
 });
@@ -201,9 +201,20 @@ const render = (page, locale) => {
     .map((key) => `<link rel="preload" as="${key.endsWith('.css') ? 'style' : 'script'}" href="${manifest[key]}"/>`);
   if (preloads.length < chunkKeys.length) console.warn(`prerender-seo: missing chunks for ${page}/${locale}`);
 
+  // The Arabic/Hebrew face is on the critical path for those pages: appended to
+  // the end of <head> it only starts fetching after the app CSS and every chunk
+  // preload, which pushes the headline's final paint (and so LCP) late. It is
+  // preloaded next to the existing preconnects instead, so the fetch starts at
+  // once — but it is still applied non-blockingly, or it delays first paint.
+  if (FONTS[locale]) {
+    html = html.replace(
+      '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>',
+      `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link rel="preload" as="style" href="${FONTS[locale]}"/><link rel="stylesheet" href="${FONTS[locale]}" media="print" onload="this.media='all'"/>`
+    );
+  }
+
   const head = [
     ...preloads,
-    FONTS[locale] && `<link rel="stylesheet" href="${FONTS[locale]}" media="print" onload="this.media='all'"/>`,
     `<link rel="canonical" href="${esc(url)}"/>`,
     ...ORDER.map((l) => `<link rel="alternate" hreflang="${l}" href="${urlFor(page, l)}"/>`),
     `<link rel="alternate" hreflang="x-default" href="${urlFor(page, 'en')}"/>`,

@@ -5,6 +5,7 @@ import { SITE } from '../i18n/locales';
 import { useSite } from '../app/SiteContext';
 import { trackEvent } from '../analytics';
 import LanguageSwitcher from './LanguageSwitcher';
+import Logo from './brand/Logo';
 
 const SOCIAL = [
   { id: 'linkedin', Icon: FiLinkedin, href: SITE.social.linkedin },
@@ -20,8 +21,8 @@ const SiteFooter = () => {
     <footer className="ds-footer">
       <div className="ds-wrap ds-footer__top">
         <div className="ds-footer__brand">
-          <Link to={path('home')} className="ds-footer__logo" dir="ltr">
-            Mohamad<span>.</span>
+          <Link to={path('home')} className="ds-footer__logo">
+            <Logo variant="stacked" size={32} descriptor={f.descriptor} />
           </Link>
           <p className="ds-footer__tagline">{f.tagline}</p>
           <div className="ds-footer__social">

@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import PageShell from './components/PageShell';
 import { LOCALES, LOCALE_ORDER, PAGES, pathFor } from './i18n/locales';
+import { Mark } from './components/brand/Logo';
 
 // Each page and each language is its own chunk: a visitor downloads one page in one language.
 const PAGE_LOADERS = {
@@ -63,9 +64,11 @@ const routeFor = (page, locale) => {
   return React.createElement(cache.get(key));
 };
 
+// Page transitions are a brand moment too: the mark, then a hairline that travels.
 const Fallback = () => (
   <div className="ds">
     <div className="ds-loading" role="status" aria-live="polite">
+      <Mark size={28} className="ds-loading__mark" />
       <span className="ds-loading__bar" />
     </div>
   </div>

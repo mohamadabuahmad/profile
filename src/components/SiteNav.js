@@ -5,6 +5,7 @@ import { useTheme } from '../App';
 import { useSite } from '../app/SiteContext';
 import { trackEvent } from '../analytics';
 import LanguageSwitcher from './LanguageSwitcher';
+import Logo from './brand/Logo';
 
 const LINKS = ['services', 'work', 'about'];
 
@@ -69,12 +70,26 @@ const SiteNav = () => {
     </Link>
   ));
 
+  // While the panel is open the rest of the page is inert, so assistive tech
+  // can't reach behind it even though the visual focus trap already holds.
+  useEffect(() => {
+    const main = document.getElementById('main');
+    const footer = document.querySelector('.ds-footer');
+    [main, footer].forEach((el) => {
+      if (!el) return;
+      if (open) el.setAttribute('inert', '');
+      else el.removeAttribute('inert');
+    });
+    return () => {
+      [main, footer].forEach((el) => el && el.removeAttribute('inert'));
+    };
+  }, [open]);
+
   return (
     <header className={`ds-nav ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
       <div className="ds-nav__bar">
         <Link to={path('home')} className="ds-nav__logo" aria-label={t.nav.home}>
-          <span className="ds-nav__mark" aria-hidden="true">M</span>
-          <span className="ds-nav__word" dir="ltr">Mohamad<span>.</span></span>
+          <Logo size={24} label="MohamadDev" />
         </Link>
 
         <nav className="ds-nav__links" aria-label={t.nav.primary}>{navLinks}</nav>
@@ -109,7 +124,10 @@ const SiteNav = () => {
         <nav className="ds-nav__panel-links" aria-label={t.nav.primary}>
           {[...LINKS, 'contact'].map((id, i) => (
             <Link key={id} to={path(id)} className="ds-nav__panel-link" style={{ '--d': i }}>
-              <span>{t.nav.links[id]}</span>
+              <span className="ds-nav__panel-num" aria-hidden="true">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="ds-nav__panel-label">{t.nav.links[id]}</span>
               <FiArrowRight className="ds-arrow" aria-hidden="true" />
             </Link>
           ))}

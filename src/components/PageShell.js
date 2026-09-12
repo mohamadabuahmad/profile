@@ -53,8 +53,25 @@ const PageShell = ({ locale = 'en', page, site, seo, children }) => {
   });
 
   // New page: start at the top and put keyboard focus at the start of the content.
+  // Only on a route CHANGE, though — moving focus into <main> on first paint puts
+  // the tab sequence past the header, so forward Tab could never reach the skip
+  // link or the navigation.
+  const isFirstRender = useRef(true);
   useEffect(() => {
-    if (hash) return;
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    if (hash) {
+      // Jumping to an in-page anchor should move the keyboard caret there too,
+      // otherwise focus stays on <body> and the next Tab restarts at the top.
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (target) {
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      }
+      return;
+    }
     window.scrollTo(0, 0);
     mainRef.current?.focus({ preventScroll: true });
   }, [pathname, hash]);

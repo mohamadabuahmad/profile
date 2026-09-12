@@ -19,6 +19,9 @@ const visit = async (path, locale = 'en') => {
   render(<App />);
   const heading = await screen.findByRole('heading', { level: 1 }, { timeout: 5000 });
   await waitFor(() => expect(document.documentElement.lang).toBe(locale));
+  // The document title is written by a separate effect, so wait for it too —
+  // otherwise assertions on metadata race the shell and flake.
+  await waitFor(() => expect(document.title).not.toBe(''));
   return heading;
 };
 
@@ -26,6 +29,9 @@ afterEach(() => {
   window.history.pushState({}, '', '/');
   document.documentElement.lang = 'en';
   document.documentElement.dir = 'ltr';
+  // Clear it so the next visit() waits for its own title rather than seeing
+  // the previous test's value still in place.
+  document.title = '';
 });
 
 describe('content files', () => {
